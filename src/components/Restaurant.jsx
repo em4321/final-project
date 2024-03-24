@@ -10,7 +10,7 @@ const Restaurant = ({ restaurant }) => {
         {restaurant.location.address1}, {restaurant.location.zip_code}
       </p>
 
-      <Link to={"./restaurant/" + restaurant.id}>Details</Link>
+      <Link to={"./restaurant/" + restaurant.id}>Restaurant Details</Link>
     </div>
   );
 };

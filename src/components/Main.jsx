@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { getSearch, selectRestaurant } from "../redux/restaurantSlice";
 import Restaurant from "./Restaurant";
+import { Route, Routes } from "react-router-dom";
+import RestaurantDetails from "./RestaurantDetails";
 
 const Main = () => {
   const restaurantData = useSelector(selectRestaurant);
@@ -26,6 +28,11 @@ const Main = () => {
   }
   return (
     <>
+      <Routes>
+        <Route path="/restaurant/:id" element={<RestaurantDetails />} />
+        <Route path="/" element={<Restaurant />} />
+      </Routes>
+
       <div className="searchResults">
         {filtered.map((restaurant) => {
           return <Restaurant key={restaurant.id} restaurant={restaurant} />;

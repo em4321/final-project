@@ -22,5 +22,10 @@ export const { addRestaurants, sortRestaurants, searchRestaurant } =
 export const selectRestaurant = (state) => state.restaurant.restaurantData;
 export const getSort = (state) => state.restaurant.sort;
 export const getSearch = (state) => state.restaurant.search;
+export const selectSingleRestaurant = (state) => {
+  return state.restaurant.restaurantData.find((restaurant) => {
+    return restaurant.id;
+  });
+};
 
 export default restaurantSlice.reducer;
