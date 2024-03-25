@@ -1,8 +1,13 @@
+import Controls from "./Controls";
+
 const Header = () => {
   return (
-    <div>
-      <h1>Restaurant Finder</h1>
-    </div>
+    <>
+      <div className="header">
+        <h1>Restaurant Finder</h1>
+      </div>
+      <Controls />
+    </>
   );
 };
 

@@ -1,16 +1,21 @@
 import { useSelector } from "react-redux";
-import { getSearch, selectRestaurant } from "../redux/restaurantSlice";
+import { getSearch, getSort, selectRestaurant } from "../redux/restaurantSlice";
 import Restaurant from "./Restaurant";
-import { Route, Routes } from "react-router-dom";
-import RestaurantDetails from "./RestaurantDetails";
 
 const Main = () => {
   const restaurantData = useSelector(selectRestaurant);
   const searchRestaurants = useSelector(getSearch);
+  const sort = useSelector(getSort);
   console.log(restaurantData);
 
   if (!restaurantData) {
-    return <p>Loading</p>;
+    return (
+      <div className="background">
+        <div className="root">
+          <p>Search for restaurants in your area</p>
+        </div>
+      </div>
+    );
   }
   let filtered = [...restaurantData];
 
@@ -26,13 +31,43 @@ const Main = () => {
       );
     });
   }
+
+  //sort isn't working - needs fixing
+  if (sort === "Distance") {
+    filtered.sort((a, b) => {
+      if (a.distance > b.distance) {
+        return 1;
+      }
+      if (a.distance < b.distance) {
+        return -1;
+      }
+    });
+  }
+  if (sort === "Highest-Rating") {
+    filtered.sort((a, b) => {
+      if (a.rating > b.rating) {
+        return 1;
+      }
+      if (a.rating < b.rating) {
+        return -1;
+      }
+    });
+  }
+  if (sort === "Lowest-Rating") {
+    filtered.sort((a, b) => {
+      if (a.rating > b.rating) {
+        return -1;
+      }
+      if (a.rating < b.rating) {
+        return 1;
+      }
+    });
+  }
+
+  console.log(filtered);
+
   return (
     <>
-      <Routes>
-        <Route path="/restaurant/:id" element={<RestaurantDetails />} />
-        <Route path="/" element={<Restaurant />} />
-      </Routes>
-
       <div className="searchResults">
         {filtered.map((restaurant) => {
           return <Restaurant key={restaurant.id} restaurant={restaurant} />;
