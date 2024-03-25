@@ -1,11 +1,20 @@
 import { useSelector } from "react-redux";
-import { getSearch, getSort, selectRestaurant } from "../redux/restaurantSlice";
+import {
+  getLoading,
+  getSearch,
+  getSort,
+  selectRestaurant,
+} from "../redux/restaurantSlice";
 import Restaurant from "./Restaurant";
+import Controls from "./Controls";
+import Spinner from "./Spinner";
 
 const Main = () => {
   const restaurantData = useSelector(selectRestaurant);
   const searchRestaurants = useSelector(getSearch);
   const sort = useSelector(getSort);
+  const loading = useSelector(getLoading);
+
   console.log(restaurantData);
 
   if (!restaurantData) {
@@ -46,20 +55,20 @@ const Main = () => {
   if (sort === "Highest-Rating") {
     filtered.sort((a, b) => {
       if (a.rating > b.rating) {
-        return 1;
+        return -1;
       }
       if (a.rating < b.rating) {
-        return -1;
+        return 1;
       }
     });
   }
   if (sort === "Lowest-Rating") {
     filtered.sort((a, b) => {
       if (a.rating > b.rating) {
-        return -1;
+        return 1;
       }
       if (a.rating < b.rating) {
-        return 1;
+        return -1;
       }
     });
   }
@@ -68,11 +77,15 @@ const Main = () => {
 
   return (
     <>
-      <div className="searchResults">
-        {filtered.map((restaurant) => {
-          return <Restaurant key={restaurant.id} restaurant={restaurant} />;
-        })}
-      </div>
+      <Controls />
+      {loading && <Spinner />}
+      {!loading && (
+        <div className="searchResults">
+          {filtered.map((restaurant) => {
+            return <Restaurant key={restaurant.id} restaurant={restaurant} />;
+          })}
+        </div>
+      )}
     </>
   );
 };

@@ -1,24 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = {};
+const dataFromDisk = JSON.parse(localStorage.getItem("restaurantData"));
+const initialState = { restaurantData: dataFromDisk };
+
 export const restaurantSlice = createSlice({
   name: "restaurant",
   initialState,
   reducers: {
     addRestaurants: (state, { payload }) => {
       state.restaurantData = payload;
+      localStorage.setItem(
+        "restaurantData",
+        JSON.stringify(state.restaurantData)
+      );
     },
     sortRestaurants: (state, { payload }) => {
-      state.sort = { payload };
+      state.sort = payload;
     },
     searchRestaurant: (state, { payload }) => {
       state.search = { payload };
     },
     favouriteRestaurant: (state, { payload }) => {
+      console.log(payload);
       const index = state.restaurantData.findIndex((restaurant) => {
-        return restaurant.name === payload;
+        return restaurant.id === payload;
       });
-      state.restaurantData[{ index }].favourite =
-        !state.restaurantData[{ index }].favourite;
+      state.restaurantData[index].favourite =
+        !state.restaurantData[index].favourite;
+    },
+    setIsLoading: (state, { payload }) => {
+      state.loading = payload;
     },
   },
 });
@@ -28,17 +38,12 @@ export const {
   sortRestaurants,
   searchRestaurant,
   favouriteRestaurant,
+  setIsLoading,
 } = restaurantSlice.actions;
 
 export const selectRestaurant = (state) => state.restaurant.restaurantData;
 export const getSort = (state) => state.restaurant.sort;
 export const getSearch = (state) => state.restaurant.search;
-
-export const selectSingleRestaurant = (state) => {
-  return state.restaurant.restaurantData.find((restaurant) => {
-    // not working correctly - need to fix
-    return restaurant.id;
-  });
-};
+export const getLoading = (state) => state.restaurant.loading;
 
 export default restaurantSlice.reducer;
