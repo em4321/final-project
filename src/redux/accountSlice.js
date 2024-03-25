@@ -13,11 +13,15 @@ export const accountSlice = createSlice({
     setScreen: (state, { payload }) => {
       state.screen = payload;
     },
+    setMessage: (state, { payload }) => {
+      state.message = payload;
+    },
   },
 });
 
-export const { setNewUser, setScreen } = accountSlice.actions;
+export const { setNewUser, setScreen, setMessage } = accountSlice.actions;
 
+export const selecMessage = (state) => state.account.message;
 export const selectScreen = (state) => state.account.screen;
 export const selectUser = (state) => state.account.user;
 

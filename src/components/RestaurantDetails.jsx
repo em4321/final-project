@@ -23,7 +23,8 @@ const RestaurantDetails = ({ index, name, favourite }) => {
           <h1>{restaurant.name}</h1>
           <h2>Phone: {restaurant.phone}</h2>
 
-          {/* Real api data */}
+          {/* from the real api - DON'T DELETE! */}
+
           {/* <img src={restaurant.image_url} />
           <h1>
             {restaurant.name} {restaurant.location.city}
