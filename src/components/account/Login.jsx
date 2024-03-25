@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../redux/accountSlice";
 import UserCredentials from "./UserCredentials";
 import sha256 from "sha256";
+import { addToPassword } from "../../secrets";
 
 const Login = () => {
   const [userInput, setUserInput] = useState({});
@@ -15,7 +16,7 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const hashedPassword = sha256(userInput.password + "ajdc3ksht1yp4gjd2bef");
+    const hashedPassword = sha256(userInput.password + { addToPassword });
 
     if (user.password === hashedPassword) {
       console.log("password is correct");
