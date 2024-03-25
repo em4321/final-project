@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { sortRestaurants } from "../redux/restaurantSlice";
-import { getApiData } from "../secrets";
+import { getApiData } from "../dataController/fetching";
 const Controls = () => {
   const dispatch = useDispatch();
   return (

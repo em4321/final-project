@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser, setMessage } from "../../redux/accountSlice";
+import { selectUser, setMessage, setScreen } from "../../redux/accountSlice";
 import UserCredentials from "./UserCredentials";
 import sha256 from "sha256";
 import { addToPassword } from "../../secrets";
@@ -20,6 +20,7 @@ const Login = () => {
 
     if (user.password === hashedPassword) {
       dispatch(setMessage("Login details are correct"));
+      dispatch(setScreen(2));
     } else {
       dispatch(setMessage("Login details are incorrect. Please try again!"));
     }

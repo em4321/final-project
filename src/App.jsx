@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { getApiData } from "./secrets";
+import { getApiData } from "./dataController/fetching";
 import Interface from "./components/Interface";
 import "./css/App.css";
 import Index from "./components/account";

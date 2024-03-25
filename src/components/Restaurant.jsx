@@ -10,8 +10,8 @@ const Restaurant = ({ restaurant }) => {
         <h2>Phone: {restaurant.phone}</h2>
 
         {/* from the real api - DON'T DELETE! */}
-
-        {/* <p>{restaurant.categories[0].title}</p>
+        {/* <h1>{restaurant.name}</h1>
+        <p>{restaurant.categories[0].title}</p>
         <img src={restaurant.image_url} />
         <p>
           {restaurant.location.address1}, {restaurant.location.zip_code}

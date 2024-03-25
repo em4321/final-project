@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Signup from "./Signup";
 import { selectScreen, setScreen } from "../../redux/accountSlice";
 import Login from "./Login";
+import Dashboard from "./Dashboard";
 
 const Index = () => {
   const screen = useSelector(selectScreen);
@@ -25,7 +26,9 @@ const Index = () => {
           Login
         </button>
       </div>
-      {screen === 0 ? <Signup /> : <Login />}
+      {screen === 0 && <Signup />}
+      {screen === 1 && <Login />}
+      {screen === 2 && <Dashboard />}
     </>
   );
 };
