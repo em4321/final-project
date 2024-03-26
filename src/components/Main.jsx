@@ -6,8 +6,10 @@ import {
   selectRestaurant,
 } from "../redux/restaurantSlice";
 import Restaurant from "./Restaurant";
-import Controls from "./Controls";
+
 import Spinner from "./Spinner";
+import ImageHeader from "./ImageHeader";
+import Nav from "./Nav";
 
 const Main = () => {
   const restaurantData = useSelector(selectRestaurant);
@@ -21,16 +23,18 @@ const Main = () => {
     return (
       <div className="background">
         <div className="root">
-          <p>Search for restaurants in your area</p>
+          <h1>Search for restaurants in your area</h1>
         </div>
       </div>
     );
   }
+
   let filtered = [...restaurantData];
 
   if (searchRestaurants) {
     filtered = filtered.filter((restaurant) => {
       return (
+        //can't search by name/term - only location
         restaurant.name.toLowerCase().includes(searchRestaurants) ||
         restaurant.location.city.toLowerCase().includes(searchRestaurants) ||
         restaurant.location.address1
@@ -41,7 +45,6 @@ const Main = () => {
     });
   }
 
-  //sort isn't working - needs fixing
   if (sort === "Distance") {
     filtered.sort((a, b) => {
       if (a.distance > b.distance) {
@@ -77,7 +80,8 @@ const Main = () => {
 
   return (
     <>
-      <Controls />
+      <ImageHeader />
+      <Nav />
       {loading && <Spinner />}
       {!loading && (
         <div className="searchResults">

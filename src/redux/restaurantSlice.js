@@ -17,8 +17,11 @@ export const restaurantSlice = createSlice({
       state.sort = payload;
     },
     searchRestaurant: (state, { payload }) => {
-      state.search = { payload };
+      state.search = payload;
     },
+    // searchButton: (state, { payload }) => {
+    //   state.search = payload;
+    // },
     favouriteRestaurant: (state, { payload }) => {
       console.log(payload);
       const index = state.restaurantData.findIndex((restaurant) => {
@@ -37,6 +40,7 @@ export const {
   addRestaurants,
   sortRestaurants,
   searchRestaurant,
+  // searchButton,
   favouriteRestaurant,
   setIsLoading,
 } = restaurantSlice.actions;

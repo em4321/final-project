@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
+import { FaRegHeart } from "react-icons/fa";
+import { FaRegStar } from "react-icons/fa";
+import { FaRegStarHalf } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import {
   favouriteRestaurant,
   selectRestaurant,
 } from "../redux/restaurantSlice";
-import Spinner from "./Spinner";
 
 const RestaurantDetails = ({ index }) => {
   const { id } = useParams();
@@ -16,6 +18,10 @@ const RestaurantDetails = ({ index }) => {
   const singleRestaurant = restaurant.find((item) => {
     return item.id === id;
   });
+  const rating = [];
+  for (let i = 1; i < singleRestaurant.rating; i++) {
+    rating.push("");
+  }
 
   console.log(singleRestaurant);
 
@@ -33,31 +39,60 @@ const RestaurantDetails = ({ index }) => {
 
           {/* from the real api - DON'T DELETE! */}
 
-          <img src={singleRestaurant.image_url} />
-          <h1>
-            {singleRestaurant.name} {singleRestaurant.location.city}
-          </h1>
-          <p>Category: {singleRestaurant.categories[0].title}</p>
-          <p>Rating: {singleRestaurant.rating}</p>
+          <h1>{singleRestaurant.name} </h1>
+
+          <h1>{singleRestaurant.location.city}</h1>
+
+          <img
+            className="singleRestaurantImage"
+            src={singleRestaurant.image_url}
+          />
+          <p>
+            {singleRestaurant.categories[0].title} {singleRestaurant.price}
+          </p>
+          <p>
+            {singleRestaurant.rating} {""}
+            {rating.map((singleRestaurant, index) => {
+              return (
+                <FaRegStar
+                  className="stars"
+                  key={index}
+                  style={{ color: "#362417" }}
+                />
+              );
+            })}
+            {singleRestaurant.rating !==
+              Math.round(singleRestaurant.rating) && (
+              <FaRegStarHalf className="stars" />
+            )}
+            {singleRestaurant.rating == Math.round(singleRestaurant.rating) && (
+              <FaRegStar className="stars" style={{ color: "#362417" }} />
+            )}{" "}
+          </p>
+          <p>{singleRestaurant.review_count} reviews</p>
         </div>
+
         <div className="restaurantInfo">
-          <h2>
-            Address: {singleRestaurant.location.address1},{" "}
+          <p>
+            {" "}
+            {singleRestaurant.location.address1},{" "}
             {singleRestaurant.location.zip_code}
-          </h2>
-          <h2>Phone: {singleRestaurant.display_phone}</h2>
+          </p>
+          <p>{singleRestaurant.display_phone}</p>
         </div>
+
         <button
-          // button isn't working - needs fixing
           className="favourite"
-          style={{
-            backgroundColor: singleRestaurant.favourite ? "#f66e85" : "#f5f580",
-          }}
           onClick={() => {
             dispatch(favouriteRestaurant(singleRestaurant.id));
           }}
         >
-          Favourite
+          <FaRegHeart
+            className="heart"
+            style={{
+              color: singleRestaurant.favourite ? "#f5b180" : "#04030f",
+            }}
+          />
         </button>
       </div>
       <div className="line"></div>

@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import { getApiData } from "./dataController/fetching";
 import Interface from "./components/Interface";
 import "./css/App.css";
-import Index from "./components/account";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
-import { selecMessage, setMessage } from "./redux/accountSlice";
+import { selectMessage, setMessage } from "./redux/accountSlice";
 import { selectRestaurant } from "./redux/restaurantSlice";
 
 const App = () => {
@@ -17,7 +16,7 @@ const App = () => {
     }
   }, []);
 
-  const message = useSelector(selecMessage);
+  const message = useSelector(selectMessage);
   const dispatch = useDispatch();
   useEffect(() => {
     if (!message) return;
@@ -29,8 +28,8 @@ const App = () => {
 
   return (
     <>
-      <Index />
       <ToastContainer />
+
       <Interface />
     </>
   );

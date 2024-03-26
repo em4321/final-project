@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
+import { FaRegStar } from "react-icons/fa";
+import { FaRegStarHalf } from "react-icons/fa";
 
 const Restaurant = ({ restaurant }) => {
+  const rating = [];
+  for (let i = 1; i < restaurant.rating; i++) {
+    rating.push("");
+  }
   return (
     <>
       <div className="results">
@@ -12,16 +18,33 @@ const Restaurant = ({ restaurant }) => {
         {/* from the real api - DON'T DELETE! */}
         <h1>{restaurant.name}</h1>
         <p>{restaurant.categories[0].title}</p>
-        <img src={restaurant.image_url} />
-        <p>
-          {restaurant.location.address1}, {restaurant.location.zip_code}
-        </p>
-        {restaurant.location.city}
-        <p>Rating: {restaurant.rating}</p>
-        <p>Distance: {restaurant.distance}</p>
         <Link className="link" to={"/restaurant/" + restaurant.id}>
-          Restaurant Details
+          <img className="restaurantImage" src={restaurant.image_url} />
         </Link>
+
+        <p>
+          {restaurant.rating}
+          {""}
+          {rating.map((restaurant, index) => {
+            return (
+              <FaRegStar
+                className="stars"
+                key={index}
+                style={{ color: "#362417" }}
+              />
+            );
+          })}
+          {restaurant.rating !== Math.round(restaurant.rating) && (
+            <FaRegStarHalf className="stars" />
+          )}
+          {restaurant.rating == Math.round(restaurant.rating) && (
+            <FaRegStar className="stars" style={{ color: "#362417" }} />
+          )}{" "}
+        </p>
+
+        <p>Price: {restaurant.price}</p>
+
+        <p>Distance: approx {Math.round(restaurant.distance / 1000)} km</p>
       </div>
       <div className="line"></div>
     </>

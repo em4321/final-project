@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser, setMessage, setScreen } from "../../redux/accountSlice";
+import {
+  selectUser,
+  setLoggedIn,
+  setMessage,
+  setScreen,
+} from "../../redux/accountSlice";
 import UserCredentials from "./UserCredentials";
 import sha256 from "sha256";
 import { addToPassword } from "../../secrets";
@@ -19,8 +24,8 @@ const Login = () => {
     const hashedPassword = sha256(userInput.password + { addToPassword });
 
     if (user.password === hashedPassword) {
-      dispatch(setMessage("Login details are correct"));
       dispatch(setScreen(2));
+      dispatch(setLoggedIn());
     } else {
       dispatch(setMessage("Login details are incorrect. Please try again!"));
     }
@@ -29,11 +34,12 @@ const Login = () => {
   console.log(userInput);
   return (
     <>
-      {" "}
-      <h1>Log in</h1>
       <form onInput={onInput} onSubmit={onSubmit}>
         <UserCredentials />
       </form>
+      <button className="radio" type="radio" name="radio" id="radio"></button>
+      <label htmlFor="radio">Remember my details</label>
+      <p>Forgotten password?</p>
     </>
   );
 };
