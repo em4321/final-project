@@ -7,6 +7,7 @@ import {
   favouriteRestaurant,
   selectRestaurant,
 } from "../redux/restaurantSlice";
+import { setMessage } from "../redux/accountSlice";
 
 const RestaurantDetails = ({ index }) => {
   const { id } = useParams();
@@ -90,6 +91,11 @@ const RestaurantDetails = ({ index }) => {
           className="favourite"
           onClick={() => {
             dispatch(favouriteRestaurant(singleRestaurant.id));
+            if (
+              singleRestaurant.favourite
+                ? dispatch(setMessage("Removed to favourites!"))
+                : dispatch(setMessage("Added to favourites!"))
+            );
           }}
         >
           <FaRegHeart

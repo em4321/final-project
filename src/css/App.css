@@ -20,6 +20,9 @@ html {
   background-color: #f9f2eb;
   padding: 1.5rem;
 }
+.singleRestaurant {
+  line-height: 5rem;
+}
 .line {
   width: 100%;
   height: 1px;
@@ -172,6 +175,7 @@ footer {
 .heart {
   font-size: 5rem;
   cursor: pointer;
+  margin-left: 1rem;
 }
 
 button:hover {
