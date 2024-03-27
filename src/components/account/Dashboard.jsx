@@ -22,6 +22,7 @@ const Dashboard = () => {
           );
         })}
       <button
+        className="logout"
         onClick={() => {
           dispatch(setLoggedIn());
           dispatch(setScreen(1));

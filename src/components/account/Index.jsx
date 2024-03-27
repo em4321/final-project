@@ -16,29 +16,34 @@ const Index = () => {
 
   return (
     <>
-      {!loggedIn && (
-        <>
-          <button
-            onClick={() => {
-              dispatch(setScreen(1));
-            }}
-          >
-            Login
-          </button>
+      <div className="index">
+        {!loggedIn && (
+          <>
+            <button
+              className="login"
+              onClick={() => {
+                dispatch(setScreen(1));
+              }}
+            >
+              Login
+            </button>
 
-          <button
-            onClick={() => {
-              dispatch(setScreen(0));
-            }}
-          >
-            Signup
-          </button>
-        </>
-      )}
-
-      {screen === 0 && <Signup />}
-      {screen === 1 && <Login />}
-      {screen === 2 && <Dashboard />}
+            <button
+              className="signup"
+              onClick={() => {
+                dispatch(setScreen(0));
+              }}
+            >
+              Signup
+            </button>
+          </>
+        )}
+        <div className="account-root">
+          {screen === 0 && <Signup />}
+          {screen === 1 && <Login />}
+          {screen === 2 && <Dashboard />}
+        </div>
+      </div>
     </>
   );
 };

@@ -39,7 +39,6 @@ const Login = () => {
       </form>
       <button className="radio" type="radio" name="radio" id="radio"></button>
       <label htmlFor="radio">Remember my details</label>
-      <p>Forgotten password?</p>
     </>
   );
 };

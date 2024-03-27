@@ -198,3 +198,37 @@ input:hover {
   border-radius: 30%;
   padding: 0.2rem;
 }
+
+form {
+  width: 100vw;
+  background-color: #f9f2eb;
+  padding: 1.5rem;
+}
+.index {
+  background-color: #f9f2eb;
+}
+
+.signup,
+.login {
+  margin: 2rem;
+}
+.account-root {
+  font-size: 1.5rem;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.email,
+.password,
+.submit {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+.logout {
+  margin-top: 10rem;
+}

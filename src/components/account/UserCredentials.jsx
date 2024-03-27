@@ -2,10 +2,16 @@ const UserCredentials = () => {
   return (
     <>
       <label htmlFor="email">Email</label>
-      <input type="email" name="email" id="email" />
+      <div className="email">
+        <input type="email" name="email" id="email" />
+      </div>{" "}
       <label htmlFor="password">Password</label>
-      <input type="password" name="password" id="password" />
-      <button>Submit</button>
+      <div className="password">
+        <input type="password" name="password" id="password" />
+      </div>
+      <div className="submit">
+        <button>Submit</button>
+      </div>
     </>
   );
 };

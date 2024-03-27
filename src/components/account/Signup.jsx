@@ -19,11 +19,13 @@ const Signup = () => {
   console.log(userInput);
   return (
     <>
-      <h1>Create an account</h1>
-      <form onInput={onInput} onSubmit={onSubmit}>
-        <UserCredentials />
-      </form>
-      <p>Your password must be at least 8 characters</p>
+      <div className="signup-page">
+        <h1>Create an account</h1>
+        <form onInput={onInput} onSubmit={onSubmit}>
+          <UserCredentials />
+        </form>
+        <p>Your password must be at least 8 characters</p>
+      </div>
     </>
   );
 };
