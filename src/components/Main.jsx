@@ -23,7 +23,7 @@ const Main = () => {
     return (
       <div className="background">
         <div className="root">
-          <h1>Search for restaurants in your area</h1>
+          <h1>Searching restaurants in your area</h1>
         </div>
       </div>
     );

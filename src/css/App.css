@@ -232,3 +232,8 @@ form {
 .logout {
   margin-top: 10rem;
 }
+
+.favouritesDashboard {
+  width: 100vw;
+  line-height: 3.5rem;
+}

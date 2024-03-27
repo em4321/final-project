@@ -1,4 +1,4 @@
-const UserCredentials = () => {
+const UserCredentials = ({ name }) => {
   return (
     <>
       <label htmlFor="email">Email</label>
@@ -10,7 +10,7 @@ const UserCredentials = () => {
         <input type="password" name="password" id="password" />
       </div>
       <div className="submit">
-        <button>Submit</button>
+        <button>{name}</button>
       </div>
     </>
   );

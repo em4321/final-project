@@ -8,9 +8,12 @@ import {
   selectRestaurant,
 } from "../redux/restaurantSlice";
 import { setMessage } from "../redux/accountSlice";
+import { useState } from "react";
+import Review from "./account/Review";
 
 const RestaurantDetails = ({ index }) => {
   const { id } = useParams();
+  const [favourite, setFavourite] = useState(false);
 
   const restaurant = useSelector(selectRestaurant);
   const dispatch = useDispatch();
@@ -90,12 +93,21 @@ const RestaurantDetails = ({ index }) => {
         <button
           className="favourite"
           onClick={() => {
+            setFavourite(!favourite);
             dispatch(favouriteRestaurant(singleRestaurant.id));
-            if (
-              singleRestaurant.favourite
-                ? dispatch(setMessage("Removed to favourites!"))
-                : dispatch(setMessage("Added to favourites!"))
-            );
+            // if (
+            //   singleRestaurant.favourite
+            //     ? dispatch(
+            //         setMessage(
+            //           "Removed " + singleRestaurant.name + " from favourites!"
+            //         )
+            //       )
+            //     : dispatch(
+            //         setMessage(
+            //           "Added " + singleRestaurant.name + " to favourites!"
+            //         )
+            //       )
+            // );
           }}
         >
           <FaRegHeart
@@ -105,6 +117,12 @@ const RestaurantDetails = ({ index }) => {
             }}
           />
         </button>
+        {favourite && (
+          <Review
+            singleRestaurant={singleRestaurant}
+            setFavourite={setFavourite}
+          />
+        )}
       </div>
       <div className="line"></div>
     </>

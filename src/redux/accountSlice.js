@@ -5,13 +5,9 @@ import { getStore, saveStore } from "./diskUtils";
 
 const initialState = {
   screen: 1,
-  favourites: [
-    { id: 1, rated: 5, date: Date.now() },
-    { id: 2, rated: 4, date: Date.now() },
-    { id: 3, rated: 3, date: Date.now() },
-  ],
+  favourites: [],
 };
-const diskData = getStore();
+const diskData = getStore("account");
 
 export const accountSlice = createSlice({
   name: "account",
@@ -20,23 +16,33 @@ export const accountSlice = createSlice({
     setNewUser: (state, { payload }) => {
       payload.password = sha256(payload.password + { addToPassword });
       state.user = payload;
-      saveStore(state);
+      saveStore("account", state);
     },
     setScreen: (state, { payload }) => {
       state.screen = payload;
-      saveStore(state);
+      saveStore("account", state);
     },
     setMessage: (state, { payload }) => {
       state.message = payload;
     },
     setLoggedIn: (state) => {
       state.loggedIn = !state.loggedIn;
-      saveStore(state);
+      saveStore("account", state);
+    },
+    setReview: (state, { payload }) => {
+      state.favourites.push({
+        name: payload.singleRestaurant.name,
+        image: payload.singleRestaurant.image_url,
+        review: payload.review,
+        singleRestaurant: payload.singleRestaurant,
+        date: Date.now(),
+      });
+      saveStore("account", state);
     },
   },
 });
 
-export const { setNewUser, setScreen, setMessage, setLoggedIn } =
+export const { setNewUser, setScreen, setMessage, setLoggedIn, setReview } =
   accountSlice.actions;
 
 export const selectMessage = (state) => state.account.message;

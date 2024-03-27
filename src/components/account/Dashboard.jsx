@@ -10,26 +10,31 @@ const Dashboard = () => {
   const favourites = useSelector(selectFavourites);
   return (
     <>
-      <h2>Dashboard</h2>
-      {favourites &&
-        favourites.map((favourite) => {
-          return (
-            <div>
-              <h1>{new Date(favourite.date).toDateString()}</h1>
-              <p>Restaurant ID: {favourite.id}</p>
-              <p>Rated: {favourite.rated}</p>
-            </div>
-          );
-        })}
-      <button
-        className="logout"
-        onClick={() => {
-          dispatch(setLoggedIn());
-          dispatch(setScreen(1));
-        }}
-      >
-        Logout
-      </button>
+      <h2>Favourites Dashboard</h2>
+      <div className="favouritesDashboard">
+        {favourites &&
+          favourites.map((favourite) => {
+            return (
+              <div>
+                <p>{new Date(favourite.date).toDateString()}</p>
+                <h1>{favourite.name}</h1>
+                <img src={favourite.image} style={{ width: "35vw" }} />
+                <p>What did you like? {favourite.review}</p>
+                <div className="line"></div>
+              </div>
+            );
+          })}
+
+        <button
+          className="logout"
+          onClick={() => {
+            dispatch(setLoggedIn());
+            dispatch(setScreen(1));
+          }}
+        >
+          Logout
+        </button>
+      </div>
     </>
   );
 };

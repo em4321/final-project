@@ -35,10 +35,10 @@ const Login = () => {
   return (
     <>
       <form onInput={onInput} onSubmit={onSubmit}>
-        <UserCredentials />
+        <UserCredentials name="Login" />
       </form>
-      <button className="radio" type="radio" name="radio" id="radio"></button>
-      <label htmlFor="radio">Remember my details</label>
+      <input type="checkbox" id="remember" name="remember"></input>
+      <label htmlFor="remember">Remember me</label>
     </>
   );
 };

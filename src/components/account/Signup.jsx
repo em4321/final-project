@@ -22,7 +22,7 @@ const Signup = () => {
       <div className="signup-page">
         <h1>Create an account</h1>
         <form onInput={onInput} onSubmit={onSubmit}>
-          <UserCredentials />
+          <UserCredentials name="Create account" />
         </form>
         <p>Your password must be at least 8 characters</p>
       </div>

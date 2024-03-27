@@ -37,11 +37,11 @@ const Index = () => {
               Signup
             </button>
           </>
-        )}
+        )}{" "}
+        {screen === 2 && <Dashboard />}
         <div className="account-root">
           {screen === 0 && <Signup />}
           {screen === 1 && <Login />}
-          {screen === 2 && <Dashboard />}
         </div>
       </div>
     </>
