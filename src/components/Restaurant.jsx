@@ -17,32 +17,34 @@ const Restaurant = ({ restaurant }) => {
 
         {/* from the real api - DON'T DELETE! */}
         <h1>{restaurant.name}</h1>
-        <p>{restaurant.categories[0].title}</p>
+
         <Link className="link" to={"/restaurant/" + restaurant.id}>
           <img className="restaurantImage" src={restaurant.image_url} />
         </Link>
 
-        <p>
-          {restaurant.rating}
-          {""}
-          {rating.map((restaurant, index) => {
-            return (
-              <FaRegStar
-                className="stars"
-                key={index}
-                style={{ color: "#362417" }}
-              />
-            );
-          })}
-          {restaurant.rating !== Math.round(restaurant.rating) && (
-            <FaRegStarHalf className="stars" />
-          )}
-          {restaurant.rating == Math.round(restaurant.rating) && (
-            <FaRegStar className="stars" style={{ color: "#362417" }} />
-          )}{" "}
-        </p>
-
-        <p>Price: {restaurant.price}</p>
+        <div>
+          <p>
+            {restaurant.categories[0].title} {restaurant.price}
+          </p>
+          <span className="numberRating">{restaurant.rating} </span>
+          <span>
+            {rating.map((restaurant, index) => {
+              return (
+                <FaRegStar
+                  className="stars"
+                  key={index}
+                  style={{ color: "#362417" }}
+                />
+              );
+            })}
+            {restaurant.rating !== Math.round(restaurant.rating) && (
+              <FaRegStarHalf className="stars" />
+            )}
+            {restaurant.rating == Math.round(restaurant.rating) && (
+              <FaRegStar className="stars" style={{ color: "#362417" }} />
+            )}
+          </span>
+        </div>
 
         <p>Distance: approx {Math.round(restaurant.distance / 1000)} km</p>
       </div>

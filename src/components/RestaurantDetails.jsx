@@ -41,17 +41,18 @@ const RestaurantDetails = ({ index }) => {
 
           <h1>{singleRestaurant.name} </h1>
 
-          <h1>{singleRestaurant.location.city}</h1>
-
           <img
             className="singleRestaurantImage"
             src={singleRestaurant.image_url}
           />
           <p>
-            {singleRestaurant.categories[0].title} {singleRestaurant.price}
+            {singleRestaurant.categories[0].title} (
+            {singleRestaurant.review_count} reviews)
           </p>
-          <p>
-            {singleRestaurant.rating} {""}
+
+          <span className="numberRating">{singleRestaurant.rating} </span>
+
+          <span>
             {rating.map((singleRestaurant, index) => {
               return (
                 <FaRegStar
@@ -68,17 +69,21 @@ const RestaurantDetails = ({ index }) => {
             {singleRestaurant.rating == Math.round(singleRestaurant.rating) && (
               <FaRegStar className="stars" style={{ color: "#362417" }} />
             )}{" "}
-          </p>
-          <p>{singleRestaurant.review_count} reviews</p>
+          </span>
+          <p>Average price: {singleRestaurant.price}</p>
         </div>
 
         <div className="restaurantInfo">
           <p>
-            {" "}
+            Location: {""}
             {singleRestaurant.location.address1},{" "}
-            {singleRestaurant.location.zip_code}
+            {singleRestaurant.location.zip_code},{" "}
+            {singleRestaurant.location.city}
           </p>
-          <p>{singleRestaurant.display_phone}</p>
+          <p>
+            Tel: {""}
+            {singleRestaurant.display_phone}
+          </p>
         </div>
 
         <button

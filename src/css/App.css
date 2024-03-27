@@ -37,7 +37,7 @@ img {
 }
 .restaurantImage {
   width: 35vw;
-  margin-left: 5rem;
+  margin-left: 1rem;
 }
 
 .singleRestaurantImage {
@@ -54,17 +54,22 @@ img {
   flex-wrap: wrap;
 }
 h1 {
-  font-size: 3rem;
-  margin-left: 5rem;
+  font-size: 2.5rem;
+  margin-left: 1rem;
 }
 
 .header h1,
 small {
   color: #f9f2eb;
 }
-p {
-  margin-left: 5rem;
+p,
+span {
+  margin-left: 1rem;
   font-size: 2rem;
+}
+.stars {
+  font-size: 2rem;
+  margin-right: 0.5rem;
 }
 .header,
 footer {
@@ -75,7 +80,6 @@ footer {
   height: 8rem;
   display: flex;
   align-items: center;
-  /* background-color: #362417; */
   background-color: #04030f;
 }
 .nav {
@@ -184,6 +188,9 @@ input:hover {
   opacity: 70%;
   cursor: pointer;
 }
-.stars {
-  font-size: 2rem;
+
+.numberRating {
+  border: 2px solid #f5b180;
+  border-radius: 30%;
+  padding: 0.2rem;
 }
