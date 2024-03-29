@@ -30,6 +30,12 @@ export const accountSlice = createSlice({
       saveStore("account", state);
     },
     setReview: (state, { payload }) => {
+      const duplicate = state.favourites.some((account) => {
+        return account.id === payload;
+      });
+      if (duplicate) {
+        return;
+      }
       state.favourites.push({
         name: payload.singleRestaurant.name,
         image: payload.singleRestaurant.image_url,
@@ -39,11 +45,23 @@ export const accountSlice = createSlice({
       });
       saveStore("account", state);
     },
+    setRemove: (state, { payload }) => {
+      const index = state.favourites.findIndex((account) => {
+        return account.id === payload;
+      });
+      state.favourites.splice(index, 1);
+    },
   },
 });
 
-export const { setNewUser, setScreen, setMessage, setLoggedIn, setReview } =
-  accountSlice.actions;
+export const {
+  setNewUser,
+  setScreen,
+  setMessage,
+  setLoggedIn,
+  setReview,
+  setRemove,
+} = accountSlice.actions;
 
 export const selectMessage = (state) => state.account.message;
 export const selectScreen = (state) => state.account.screen;

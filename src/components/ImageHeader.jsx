@@ -1,9 +1,9 @@
-const ImageHeader = ({ restaurant }) => {
+const ImageHeader = () => {
   return (
     <>
       <div className="background">
         <div className="root">
-          <h1>Showing 20 restaurants in your area</h1>
+          <h1>Showing 20 restaurants in your area </h1>
         </div>
       </div>
     </>

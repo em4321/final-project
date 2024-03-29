@@ -183,11 +183,13 @@ select {
   height: 1rem;
 }
 
-.favourite {
+.favourite,
+.remove {
   border: #f9f2eb;
   background-color: #f9f2eb;
 }
-.heart {
+.heart,
+.trash {
   font-size: 4rem;
   cursor: pointer;
   margin-left: 1rem;

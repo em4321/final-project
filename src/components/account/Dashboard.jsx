@@ -2,10 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   selectFavourites,
   setLoggedIn,
+  setRemove,
   setScreen,
 } from "../../redux/accountSlice";
+import { selectRestaurant } from "../../redux/restaurantSlice";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 const Dashboard = () => {
+  const restaurant = useSelector(selectRestaurant);
   const dispatch = useDispatch();
   const favourites = useSelector(selectFavourites);
   return (
@@ -23,15 +27,26 @@ const Dashboard = () => {
         <div className="favouritesDashboard">
           <h1>Favourites Dashboard</h1>
           {favourites &&
-            favourites.map((favourite) => {
+            favourites.map((favourite, index) => {
               return (
-                <div className="container">
+                <div className="container" key={index}>
                   <p>{new Date(favourite.date).toDateString()}</p>
                   <h1>{favourite.name}</h1>
                   <img src={favourite.image} style={{ width: "35vw" }} />
                   <div className="restaurantInfo">
-                    <p>What did you like? {favourite.review}</p>
+                    <p>
+                      What did you like? {favourite.review}{" "}
+                      <button
+                        className="remove"
+                        onClick={() => {
+                          dispatch(setRemove(favourite.id));
+                        }}
+                      >
+                        <FaRegTrashAlt className="trash" />
+                      </button>
+                    </p>
                   </div>
+
                   <div className="line"></div>
                 </div>
               );
