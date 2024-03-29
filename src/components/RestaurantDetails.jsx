@@ -7,7 +7,7 @@ import {
   favouriteRestaurant,
   selectRestaurant,
 } from "../redux/restaurantSlice";
-import { setMessage } from "../redux/accountSlice";
+// import { setMessage } from "../redux/accountSlice";
 import { useState } from "react";
 import Review from "./account/Review";
 
@@ -35,94 +35,91 @@ const RestaurantDetails = ({ index }) => {
   return (
     <>
       <div className="singleRestaurant" key={index}>
-        <div className="details">
+        <div className="container">
           {/* temporarily added fake placeholder api for testing */}
           {/* <h1>(Placeholder Data)</h1>
           <h1>{restaurant.name}</h1>
           <h2>Phone: {restaurant.phone}</h2> */}
-
           {/* from the real api - DON'T DELETE! */}
-
-          <h1>{singleRestaurant.name} </h1>
-
+          <div className="name">
+            <h1>
+              <span>
+                {singleRestaurant.name} - {singleRestaurant.location.city}
+                <button
+                  className="favourite"
+                  onClick={() => {
+                    setFavourite(!favourite);
+                    dispatch(favouriteRestaurant(singleRestaurant.id));
+                    // if (
+                    //   singleRestaurant.favourite
+                    //     ? dispatch(
+                    //         setMessage(
+                    //           "Removed " + singleRestaurant.name + " from favourites!"
+                    //         )
+                    //       )
+                    //     : dispatch(
+                    //         setMessage(
+                    //           "Added " + singleRestaurant.name + " to favourites!"
+                    //         )
+                    //       )
+                    // );
+                  }}
+                >
+                  <FaRegHeart
+                    className="heart"
+                    style={{
+                      color: singleRestaurant.favourite ? "#f5b180" : "#04030f",
+                    }}
+                  />
+                </button>
+                {favourite && (
+                  <Review
+                    singleRestaurant={singleRestaurant}
+                    setFavourite={setFavourite}
+                  />
+                )}
+              </span>
+            </h1>
+          </div>
           <img
             className="singleRestaurantImage"
             src={singleRestaurant.image_url}
           />
-          <p>
-            {singleRestaurant.categories[0].title} (
-            {singleRestaurant.review_count} reviews)
-          </p>
+          <div className="restaurantInfo">
+            <p>
+              {singleRestaurant.categories[0].title} (
+              {singleRestaurant.review_count} reviews)
+            </p>
+            <span className="numberRating">{singleRestaurant.rating} </span>
+            <span>
+              {rating.map((singleRestaurant, index) => {
+                return <FaRegStar className="stars" key={index} />;
+              })}
+              {singleRestaurant.rating !==
+                Math.round(singleRestaurant.rating) && (
+                <FaRegStarHalf className="stars" />
+              )}
+              {singleRestaurant.rating ==
+                Math.round(singleRestaurant.rating) && (
+                <FaRegStar className="stars" />
+              )}{" "}
+            </span>
+            <p>Average price: {singleRestaurant.price}</p>
+          </div>
 
-          <span className="numberRating">{singleRestaurant.rating} </span>
-
-          <span>
-            {rating.map((singleRestaurant, index) => {
-              return (
-                <FaRegStar
-                  className="stars"
-                  key={index}
-                  style={{ color: "#362417" }}
-                />
-              );
-            })}
-            {singleRestaurant.rating !==
-              Math.round(singleRestaurant.rating) && (
-              <FaRegStarHalf className="stars" />
-            )}
-            {singleRestaurant.rating == Math.round(singleRestaurant.rating) && (
-              <FaRegStar className="stars" style={{ color: "#362417" }} />
-            )}{" "}
-          </span>
-          <p>Average price: {singleRestaurant.price}</p>
+          <div className="restaurantInfo">
+            <p>
+              Location: {""}
+              {singleRestaurant.location.address1},{" "}
+              {singleRestaurant.location.zip_code},{" "}
+              {singleRestaurant.location.city}
+            </p>
+            <p>
+              Tel: {""}
+              {singleRestaurant.display_phone}
+            </p>
+          </div>
         </div>
-
-        <div className="restaurantInfo">
-          <p>
-            Location: {""}
-            {singleRestaurant.location.address1},{" "}
-            {singleRestaurant.location.zip_code},{" "}
-            {singleRestaurant.location.city}
-          </p>
-          <p>
-            Tel: {""}
-            {singleRestaurant.display_phone}
-          </p>
-        </div>
-
-        <button
-          className="favourite"
-          onClick={() => {
-            setFavourite(!favourite);
-            dispatch(favouriteRestaurant(singleRestaurant.id));
-            // if (
-            //   singleRestaurant.favourite
-            //     ? dispatch(
-            //         setMessage(
-            //           "Removed " + singleRestaurant.name + " from favourites!"
-            //         )
-            //       )
-            //     : dispatch(
-            //         setMessage(
-            //           "Added " + singleRestaurant.name + " to favourites!"
-            //         )
-            //       )
-            // );
-          }}
-        >
-          <FaRegHeart
-            className="heart"
-            style={{
-              color: singleRestaurant.favourite ? "#f5b180" : "#04030f",
-            }}
-          />
-        </button>
-        {favourite && (
-          <Review
-            singleRestaurant={singleRestaurant}
-            setFavourite={setFavourite}
-          />
-        )}
       </div>
       <div className="line"></div>
     </>

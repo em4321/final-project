@@ -14,11 +14,18 @@ html {
   font-size: 5rem;
 }
 
+input {
+  border-radius: 2rem;
+  padding: 1rem;
+}
+main {
+  background-color: #f9f2eb;
+}
 .results,
 .singleRestaurant {
   width: 100vw;
-  background-color: #f9f2eb;
   padding: 1.5rem;
+  margin-left: 1rem;
 }
 .singleRestaurant {
   line-height: 5rem;
@@ -39,12 +46,12 @@ img {
   border: 1rem solid #f5b180;
 }
 .restaurantImage {
-  width: 35vw;
+  width: 30vw;
   margin-left: 1rem;
 }
 
 .singleRestaurantImage {
-  width: 75vw;
+  width: 40vw;
 }
 .searchResults {
   display: flex;
@@ -67,12 +74,16 @@ small {
 }
 p,
 span {
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
   font-size: 2rem;
 }
 .stars {
   font-size: 2rem;
   margin-right: 0.5rem;
+}
+
+.name {
+  margin-bottom: 2rem;
 }
 .header,
 footer {
@@ -98,6 +109,14 @@ footer {
   justify-content: center;
   padding: 1rem;
   background-color: #92817a;
+}
+
+select {
+  border-radius: 2rem;
+  padding: 1rem;
+  margin: 10px;
+  width: 13rem;
+  text-align: center;
 }
 #search {
   width: 60vw;
@@ -148,13 +167,6 @@ footer {
   cursor: pointer;
 }
 
-.restaurantInfo {
-  margin-right: 10rem;
-}
-
-.details {
-  width: 100vw;
-}
 .links p {
   font-size: 1.5rem;
 }
@@ -163,6 +175,9 @@ footer {
   background-color: #f9f2eb;
 }
 
+.logo {
+  color: #f5b180;
+}
 .radio {
   width: 1rem;
   height: 1rem;
@@ -173,11 +188,14 @@ footer {
   background-color: #f9f2eb;
 }
 .heart {
-  font-size: 5rem;
+  font-size: 4rem;
   cursor: pointer;
   margin-left: 1rem;
 }
 
+.stars {
+  color: #362417;
+}
 button:hover {
   opacity: 70%;
   cursor: pointer;
@@ -230,10 +248,47 @@ form {
   margin-top: 1rem;
 }
 .logout {
-  margin-top: 10rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  border-radius: 2rem;
+  padding: 1rem;
 }
 
 .favouritesDashboard {
   width: 100vw;
   line-height: 3.5rem;
+}
+
+@media screen and (min-width: 660px) {
+  .results {
+    display: flex;
+  }
+  .container,
+  .restaurantInfo {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: auto;
+    padding: 5rem;
+  }
+  .favouritesDashboard {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 5rem;
+  }
+}
+@media screen and (min-width: 800px) {
+  .singleRestaurant {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 5rem;
+  }
 }

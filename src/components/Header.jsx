@@ -5,19 +5,14 @@ const Header = () => {
   return (
     <>
       <div className="header">
-        <IoIosRestaurant
-          className="logo"
-          style={{
-            color: "#f5b180",
-          }}
-        />
+        <IoIosRestaurant className="logo" />
         <h1>Restaurant Finder</h1>
 
         <Link to="/" style={{ textDecoration: "none" }}>
           <button className="links">Home</button>
         </Link>
 
-        <Link to="/account" style={{ textDecoration: "none" }}>
+        <Link to="/account" style={{ textDecoration: "none", padding: "1rem" }}>
           <button className="links">Account</button>
         </Link>
       </div>

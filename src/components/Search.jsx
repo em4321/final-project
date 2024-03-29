@@ -1,12 +1,10 @@
+import { useDispatch } from "react-redux";
 import { getApiData } from "../dataController/fetching";
+
 const Search = () => {
-  // const onSubmit = (e) => {
-  //   e.preventDefault();
-  // };
   return (
     <>
       <div className="searchBar">
-        {/* <form onSubmit={onSubmit}> */}
         <label htmlFor="search"></label>
         <input
           type="text"
@@ -17,7 +15,6 @@ const Search = () => {
         />
 
         {/* <button className="searchButton">Search</button> */}
-        {/* </form> */}
       </div>
     </>
   );

@@ -10,10 +10,6 @@ const Controls = () => {
           onChange={(e) => {
             dispatch(sortRestaurants(e.target.value));
           }}
-          style={{
-            margin: "10px",
-            width: "80px",
-          }}
         >
           <option value="">Best Match</option>
           <option value="Distance">Distance</option>

@@ -26,6 +26,7 @@ export const restaurantSlice = createSlice({
       state.search = payload;
       saveStore("restaurant", state);
     },
+
     // searchButton: (state, { payload }) => {
     //   state.search = payload;
     // },
