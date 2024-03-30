@@ -19,6 +19,8 @@ const Restaurant = ({ restaurant }) => {
           <div className="name">
             <h1>{restaurant.name}</h1>
           </div>
+          <h2>{restaurant.location.city}</h2>
+          <h2>{restaurant.location.zip_code}</h2>
           <Link className="link" to={"/restaurant/" + restaurant.id}>
             <img className="restaurantImage" src={restaurant.image_url} />
           </Link>

@@ -7,7 +7,6 @@ import {
   favouriteRestaurant,
   selectRestaurant,
 } from "../redux/restaurantSlice";
-// import { setMessage } from "../redux/accountSlice";
 import { useState } from "react";
 import Review from "./account/Review";
 
@@ -50,19 +49,6 @@ const RestaurantDetails = ({ index }) => {
                   onClick={() => {
                     setFavourite(!favourite);
                     dispatch(favouriteRestaurant(singleRestaurant.id));
-                    // if (
-                    //   singleRestaurant.favourite
-                    //     ? dispatch(
-                    //         setMessage(
-                    //           "Removed " + singleRestaurant.name + " from favourites!"
-                    //         )
-                    //       )
-                    //     : dispatch(
-                    //         setMessage(
-                    //           "Added " + singleRestaurant.name + " to favourites!"
-                    //         )
-                    //       )
-                    // );
                   }}
                 >
                   <FaRegHeart
@@ -90,7 +76,7 @@ const RestaurantDetails = ({ index }) => {
               {singleRestaurant.categories[0].title} (
               {singleRestaurant.review_count} reviews)
             </p>
-            <span className="numberRating">{singleRestaurant.rating} </span>
+            <span className="numberRating"> {singleRestaurant.rating} </span>
             <span>
               {rating.map((singleRestaurant, index) => {
                 return <FaRegStar className="stars" key={index} />;
@@ -108,16 +94,15 @@ const RestaurantDetails = ({ index }) => {
           </div>
 
           <div className="restaurantInfo">
+            <h1>Location: </h1>
             <p>
-              Location: {""}
               {singleRestaurant.location.address1},{" "}
               {singleRestaurant.location.zip_code},{" "}
               {singleRestaurant.location.city}
             </p>
-            <p>
-              Tel: {""}
-              {singleRestaurant.display_phone}
-            </p>
+
+            <h1>Tel: </h1>
+            <p> {singleRestaurant.display_phone}</p>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import {
 } from "../../redux/accountSlice";
 import { selectRestaurant } from "../../redux/restaurantSlice";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 
 const Dashboard = () => {
   const restaurant = useSelector(selectRestaurant);
@@ -33,7 +34,15 @@ const Dashboard = () => {
       <div className="results">
         <div className="favouritesDashboard">
           <h1>Favourites Dashboard</h1>
-          <h2>Total favourited restaurants: {total}</h2>
+          <h2>
+            {total} Favourties
+            <FaRegHeart
+              style={{
+                fontSize: "2rem",
+                marginLeft: "1rem",
+              }}
+            />
+          </h2>
           {favourites &&
             favourites.map((favourite, index) => {
               return (

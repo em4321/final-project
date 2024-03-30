@@ -37,7 +37,6 @@ export const restaurantSlice = createSlice({
       });
       state.restaurantData[index].favourite =
         !state.restaurantData[index].favourite;
-      // saveStore("restaurant", state);
     },
 
     setIsLoading: (state, { payload }) => {
