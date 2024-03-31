@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getStore, saveStore } from "./diskUtils";
-// const dataFromDisk = JSON.parse(localStorage.getItem("restaurantData"));
-// const initialState = { restaurantData: dataFromDisk };
+
 const initialState = {};
 
 const diskData = getStore("restaurant");
@@ -12,10 +11,6 @@ export const restaurantSlice = createSlice({
   reducers: {
     addRestaurants: (state, { payload }) => {
       state.restaurantData = payload;
-      // localStorage.setItem(
-      //   "restaurantData",
-      //   JSON.stringify(state.restaurantData)
-      // );
       saveStore("restaurant", state);
     },
     sortRestaurants: (state, { payload }) => {
@@ -27,9 +22,6 @@ export const restaurantSlice = createSlice({
       saveStore("restaurant", state);
     },
 
-    // searchButton: (state, { payload }) => {
-    //   state.search = payload;
-    // },
     favouriteRestaurant: (state, { payload }) => {
       console.log(payload);
       const index = state.restaurantData.findIndex((restaurant) => {
@@ -41,7 +33,6 @@ export const restaurantSlice = createSlice({
 
     setIsLoading: (state, { payload }) => {
       state.loading = payload;
-      // saveStore("restaurant", state);
     },
   },
 });
@@ -50,7 +41,6 @@ export const {
   addRestaurants,
   sortRestaurants,
   searchRestaurant,
-  // searchButton,
   favouriteRestaurant,
   setIsLoading,
 } = restaurantSlice.actions;

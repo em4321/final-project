@@ -5,21 +5,13 @@ import {
   setRemove,
   setScreen,
 } from "../../redux/accountSlice";
-import { selectRestaurant } from "../../redux/restaurantSlice";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 
 const Dashboard = () => {
-  const restaurant = useSelector(selectRestaurant);
-
-  let total = 0;
-  restaurant.forEach((restaurant) => {
-    if (restaurant.favourite) {
-      total++;
-    }
-  });
   const dispatch = useDispatch();
   const favourites = useSelector(selectFavourites);
+
   return (
     <>
       <button
@@ -35,7 +27,7 @@ const Dashboard = () => {
         <div className="favouritesDashboard">
           <h1>Favourites Dashboard</h1>
           <h2>
-            {total} Favourties
+            {favourites.length} Favourites
             <FaRegHeart
               style={{
                 fontSize: "2rem",
@@ -48,7 +40,9 @@ const Dashboard = () => {
               return (
                 <div className="container" key={index}>
                   <p>{new Date(favourite.date).toDateString()}</p>
-                  <h1>{favourite.name}</h1>
+                  <h1>
+                    {favourite.name} - {favourite.city}
+                  </h1>
                   <span>
                     <img src={favourite.image} style={{ width: "35vw" }} />{" "}
                     <button

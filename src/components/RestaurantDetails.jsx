@@ -1,12 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { FaRegHeart } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
 import { FaRegStarHalf } from "react-icons/fa";
 import { useParams } from "react-router-dom";
-import {
-  favouriteRestaurant,
-  selectRestaurant,
-} from "../redux/restaurantSlice";
+import { selectRestaurant } from "../redux/restaurantSlice";
 import { useState } from "react";
 import Review from "./account/Review";
 
@@ -15,7 +12,6 @@ const RestaurantDetails = ({ index }) => {
   const [favourite, setFavourite] = useState(false);
 
   const restaurant = useSelector(selectRestaurant);
-  const dispatch = useDispatch();
 
   console.log(restaurant, id);
   const singleRestaurant = restaurant.find((item) => {
@@ -35,11 +31,6 @@ const RestaurantDetails = ({ index }) => {
     <>
       <div className="singleRestaurant" key={index}>
         <div className="container">
-          {/* temporarily added fake placeholder api for testing */}
-          {/* <h1>(Placeholder Data)</h1>
-          <h1>{restaurant.name}</h1>
-          <h2>Phone: {restaurant.phone}</h2> */}
-          {/* from the real api - DON'T DELETE! */}
           <div className="name">
             <h1>
               <span>
@@ -48,7 +39,6 @@ const RestaurantDetails = ({ index }) => {
                   className="favourite"
                   onClick={() => {
                     setFavourite(!favourite);
-                    dispatch(favouriteRestaurant(singleRestaurant.id));
                   }}
                 >
                   <FaRegHeart
@@ -101,8 +91,14 @@ const RestaurantDetails = ({ index }) => {
               {singleRestaurant.location.city}
             </p>
 
-            <h1>Tel: </h1>
-            <p> {singleRestaurant.display_phone}</p>
+            <address>
+              <h1>
+                Tel:{" "}
+                <a href={`tel: ${singleRestaurant.display_phone}`}>
+                  {singleRestaurant.display_phone}
+                </a>{" "}
+              </h1>
+            </address>
           </div>
         </div>
       </div>

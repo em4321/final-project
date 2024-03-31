@@ -30,14 +30,29 @@ export const accountSlice = createSlice({
       saveStore("account", state);
     },
     setReview: (state, { payload }) => {
-      // const duplicate = state.favourites.some((account) => {
-      //   return account.id === payload;
-      // });
-      // if (duplicate) {
-      //   return;
-      // }
+      console.log(payload);
+      const duplicate = state.favourites.some((account) => {
+        console.log(account.id, payload.singleRestaurant.id);
+        return account.singleRestaurant.id === payload.singleRestaurant.id;
+      });
+      if (duplicate) {
+        console.log("duplicate found");
+        state.message =
+          payload.singleRestaurant.name +
+          " - " +
+          payload.singleRestaurant.location.city +
+          " has already been added!";
+        return;
+      }
+      state.message =
+        "Added " +
+        payload.singleRestaurant.name +
+        " - " +
+        payload.singleRestaurant.location.city +
+        " to favourites!";
       state.favourites.push({
         name: payload.singleRestaurant.name,
+        city: payload.singleRestaurant.location.city,
         image: payload.singleRestaurant.image_url,
         review: payload.review,
         singleRestaurant: payload.singleRestaurant,
@@ -52,15 +67,6 @@ export const accountSlice = createSlice({
       state.favourites.splice(index, 1);
       saveStore("account", state);
     },
-    // setTotal: (state) => {
-    //   let total = 0;
-    //   restaurant.forEach((account) => {
-    //     if (account.favourite) {
-    //       total++;
-    //     }
-    //   });
-    //   saveStore("account", state);
-    // },
   },
 });
 

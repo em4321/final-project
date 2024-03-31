@@ -17,6 +17,7 @@ html {
 input {
   border-radius: 2rem;
   padding: 1rem;
+  width: 40vw;
 }
 main {
   background-color: #f9f2eb;
@@ -95,6 +96,7 @@ footer {
 }
 .nav {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 1rem;
@@ -125,7 +127,12 @@ select {
   justify-content: center;
   padding: 1rem;
 }
-
+label {
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 .background {
   min-height: 30vh;
   max-height: 60vh;

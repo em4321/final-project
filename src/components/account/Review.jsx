@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setMessage, setReview } from "../../redux/accountSlice";
+import { setReview } from "../../redux/accountSlice";
 import { FaRegHeart } from "react-icons/fa";
 
 const Review = ({ singleRestaurant, setFavourite }) => {
@@ -10,7 +10,6 @@ const Review = ({ singleRestaurant, setFavourite }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(setReview({ review: userInput.review, singleRestaurant }));
-    dispatch(setMessage("Added " + singleRestaurant.name + " to favourites!"));
     setFavourite();
   };
 
@@ -25,9 +24,8 @@ const Review = ({ singleRestaurant, setFavourite }) => {
           type="text"
           id="review"
           name="review"
-          placeholder="What did you like?"
+          placeholder="Optional: What did you like?"
           style={{
-            // fontSize: "2rem",
             textAlign: "center",
             height: "5rem",
             width: "20rem",

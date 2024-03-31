@@ -10,11 +10,6 @@ const Restaurant = ({ restaurant }) => {
   return (
     <>
       <div className="results">
-        {/* temporarily added fake placeholder api for testing */}
-        {/* <h1>(Placeholder Data)</h1>
-        <h1>{restaurant.name}</h1>
-        <h2>Phone: {restaurant.phone}</h2> */}
-        {/* from the real api - DON'T DELETE! */}
         <div className="container">
           <div className="name">
             <h1>{restaurant.name}</h1>

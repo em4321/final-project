@@ -6,7 +6,6 @@ import {
   selectRestaurant,
 } from "../redux/restaurantSlice";
 import Restaurant from "./Restaurant";
-
 import Spinner from "./Spinner";
 import ImageHeader from "./ImageHeader";
 import Nav from "./Nav";
@@ -34,7 +33,6 @@ const Main = () => {
   if (searchRestaurants) {
     filtered = filtered.filter((restaurant) => {
       return (
-        //can't search by name/term - only location
         restaurant.name.toLowerCase().includes(searchRestaurants) ||
         restaurant.location.city.toLowerCase().includes(searchRestaurants) ||
         restaurant.location.address1
