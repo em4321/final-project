@@ -2,17 +2,30 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setNewUser, setScreen } from "../../redux/accountSlice";
 import UserCredentials from "./UserCredentials";
+import axios from "axios";
 
 const Signup = () => {
   const [userInput, setUserInput] = useState({});
   const dispatch = useDispatch();
+
   const onInput = (e) => {
     setUserInput({ ...userInput, [e.target.id]: e.target.value });
   };
 
-  const onSubmit = (e) => {
+  //send to store (front end)
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  //   dispatch(setNewUser(userInput));
+
+  //send it to api (back end)
+  const onSubmit = async (e) => {
     e.preventDefault();
-    dispatch(setNewUser(userInput));
+
+    const { data } = await axios.post(
+      "http://localhost:6002/user/add",
+      userInput
+    );
+    console.log(data);
     dispatch(setScreen(1));
   };
 

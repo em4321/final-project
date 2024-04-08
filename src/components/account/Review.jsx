@@ -2,15 +2,23 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setReview } from "../../redux/accountSlice";
 import { FaRegHeart } from "react-icons/fa";
+import axios from "axios";
 
 const Review = ({ singleRestaurant, setFavourite }) => {
   const [userInput, setUserInput] = useState({});
   const dispatch = useDispatch();
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     dispatch(setReview({ review: userInput.review, singleRestaurant }));
     setFavourite();
+
+    const { data } = await axios.post(
+      `http://localhost:6002/user/addFavourite`,
+      { review: userInput.review, singleRestaurant },
+      { headers: { token: localStorage.getItem("token") } }
+    );
+    console.log(data);
   };
 
   const onInput = (e) => {
