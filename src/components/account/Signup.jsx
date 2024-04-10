@@ -12,12 +12,6 @@ const Signup = () => {
     setUserInput({ ...userInput, [e.target.id]: e.target.value });
   };
 
-  //send to store (front end)
-  // const onSubmit = (e) => {
-  //   e.preventDefault();
-  //   dispatch(setNewUser(userInput));
-
-  //send it to api (back end)
   const onSubmit = async (e) => {
     e.preventDefault();
 

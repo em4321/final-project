@@ -7,6 +7,7 @@ import {
 } from "../../redux/accountSlice";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
+import axios from "axios";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -47,8 +48,14 @@ const Dashboard = () => {
                     <img src={favourite.image} style={{ width: "35vw" }} />{" "}
                     <button
                       className="remove"
-                      onClick={() => {
+                      onClick={async () => {
                         dispatch(setRemove(favourite.id));
+
+                        const { data } = await axios.delete(
+                          `http://localhost:6002/user/deleteFavourite`,
+                          { headers: { token: localStorage.getItem("token") } }
+                        );
+                        console.log(data);
                       }}
                     >
                       <FaRegTrashAlt className="trash" />
