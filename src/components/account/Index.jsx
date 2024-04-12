@@ -1,23 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import Signup from "./Signup";
-import {
-  selectLoggedIn,
-  selectScreen,
-  setScreen,
-} from "../../redux/accountSlice";
+import { selectScreen, setScreen } from "../../redux/accountSlice";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 
 const Index = () => {
   const screen = useSelector(selectScreen);
-  const loggedIn = useSelector(selectLoggedIn);
-
   const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
 
   return (
     <>
       <div className="index">
-        {!loggedIn && (
+        {!token && (
           <>
             <button
               className="login"

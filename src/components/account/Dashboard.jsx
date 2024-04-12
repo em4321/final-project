@@ -18,8 +18,11 @@ const Dashboard = () => {
       headers: { token: localStorage.getItem("token") },
     });
     console.log(data);
-    dispatch(setLoggedIn());
-    dispatch(setScreen(1));
+
+    if (data.status) {
+      localStorage.removeItem("token");
+      dispatch(setScreen(1));
+    }
   };
 
   return (
