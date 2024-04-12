@@ -13,14 +13,24 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const favourites = useSelector(selectFavourites);
 
+  const logout = async () => {
+    const { data } = await axios.delete(`http://localhost:6002/user/logout`, {
+      headers: { token: localStorage.getItem("token") },
+    });
+    console.log(data);
+    dispatch(setLoggedIn());
+    dispatch(setScreen(1));
+  };
+
   return (
     <>
       <button
         className="logout"
-        onClick={() => {
-          dispatch(setLoggedIn());
-          dispatch(setScreen(1));
-        }}
+        // onClick={() => {
+        //   dispatch(setLoggedIn());
+        //   dispatch(setScreen(1));
+        // }}
+        onClick={logout}
       >
         Logout
       </button>
