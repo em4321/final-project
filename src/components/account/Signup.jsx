@@ -19,8 +19,12 @@ const Signup = () => {
       "http://localhost:6002/user/add",
       userInput
     );
-    console.log(data);
-    dispatch(setScreen(1));
+    if (data.status) {
+      localStorage.setItem("token", data.token);
+      dispatch(setScreen(2));
+    }
+
+    // dispatch(setScreen(1));
   };
 
   console.log(userInput);
