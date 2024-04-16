@@ -61,6 +61,7 @@ export const accountSlice = createSlice({
       saveStore("account", state);
     },
     setRemove: (state, { payload }) => {
+      console.log(payload, state.favourites);
       const index = state.favourites.findIndex((account) => {
         return account.id === payload;
       });

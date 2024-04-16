@@ -62,11 +62,17 @@ const Dashboard = () => {
                     <button
                       className="remove"
                       onClick={async () => {
-                        dispatch(setRemove(favourite.id));
+                        console.log(favourite);
+                        dispatch(setRemove(favourite.singleRestaurant.id));
 
                         const { data } = await axios.delete(
                           `http://localhost:6002/user/deleteFavourite`,
-                          { headers: { token: localStorage.getItem("token") } }
+                          {
+                            headers: {
+                              token: localStorage.getItem("token"),
+                              id: favourite.singleRestaurant.id,
+                            },
+                          }
                         );
                         console.log(data);
                       }}
