@@ -8,8 +8,7 @@ import {
   setScreen,
 } from "../../redux/accountSlice";
 import UserCredentials from "./UserCredentials";
-import sha256 from "sha256";
-import { addToPassword } from "../../secrets";
+
 import axios from "axios";
 
 const Login = () => {

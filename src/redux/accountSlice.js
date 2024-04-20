@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import sha256 from "sha256";
-import { addToPassword } from "../secrets";
+
 import { getStore, saveStore } from "./diskUtils";
 
 const initialState = {
@@ -14,7 +14,7 @@ export const accountSlice = createSlice({
   initialState: diskData ? diskData : initialState,
   reducers: {
     setNewUser: (state, { payload }) => {
-      payload.password = sha256(payload.password + { addToPassword });
+      // payload.password = sha256(payload.password + { addToPassword });
       state.user = payload;
       saveStore("account", state);
     },
