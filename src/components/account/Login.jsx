@@ -28,7 +28,7 @@ const Login = () => {
       "http://localhost:6002/user/login",
       userInput
     );
-    console.log(data);
+
     if (data.status) {
       dispatch(setScreen(2));
       dispatch(setLoggedIn());
@@ -43,7 +43,6 @@ const Login = () => {
     }
   };
 
-  console.log(userInput);
   return (
     <>
       <form onInput={onInput} onSubmit={onSubmit}>

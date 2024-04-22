@@ -9,16 +9,21 @@ const Review = ({ singleRestaurant, setFavourite }) => {
   const dispatch = useDispatch();
 
   const onSubmit = async (e) => {
+    console.log("onsubmit ran");
     e.preventDefault();
-    dispatch(setReview({ review: userInput.review, singleRestaurant }));
-    setFavourite();
 
-    const { data } = await axios.post(
-      `http://localhost:6002/user/addFavourite`,
-      { review: userInput.review, singleRestaurant },
-      { headers: { token: localStorage.getItem("token") } }
-    );
-    console.log(data);
+    try {
+      const { data } = await axios.post(
+        `http://localhost:6002/user/addFavourite`,
+        { review: userInput.review, singleRestaurant },
+        { headers: { token: localStorage.getItem("token") } }
+      );
+      console.log("data", data);
+      dispatch(setReview({ review: userInput.review, singleRestaurant }));
+      setFavourite();
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const onInput = (e) => {

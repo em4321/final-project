@@ -15,7 +15,5 @@ export const getApiData = async (location, name) => {
 
     store.dispatch(setIsLoading(false));
     store.dispatch(addRestaurants(data.businesses));
-  } catch (e) {
-    console.log("no data", e);
-  }
+  } catch (e) {}
 };

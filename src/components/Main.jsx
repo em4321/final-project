@@ -16,8 +16,6 @@ const Main = () => {
   const sort = useSelector(getSort);
   const loading = useSelector(getLoading);
 
-  console.log(restaurantData);
-
   if (!restaurantData) {
     return (
       <div className="background">
@@ -73,8 +71,6 @@ const Main = () => {
       }
     });
   }
-
-  console.log(filtered);
 
   return (
     <>

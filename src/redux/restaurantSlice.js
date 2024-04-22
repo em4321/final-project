@@ -23,7 +23,6 @@ export const restaurantSlice = createSlice({
     },
 
     favouriteRestaurant: (state, { payload }) => {
-      console.log(payload);
       const index = state.restaurantData.findIndex((restaurant) => {
         return restaurant.id === payload;
       });

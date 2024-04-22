@@ -13,7 +13,6 @@ const RestaurantDetails = ({ index }) => {
 
   const restaurant = useSelector(selectRestaurant);
 
-  console.log(restaurant, id);
   const singleRestaurant = restaurant.find((item) => {
     return item.id === id;
   });
@@ -21,8 +20,6 @@ const RestaurantDetails = ({ index }) => {
   for (let i = 1; i < singleRestaurant.rating; i++) {
     rating.push("");
   }
-
-  console.log(singleRestaurant);
 
   if (!singleRestaurant) {
     return <p>Restaurant not found</p>;

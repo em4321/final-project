@@ -17,7 +17,6 @@ const Dashboard = () => {
     const { data } = await axios.delete(`http://localhost:6002/user/logout`, {
       headers: { token: localStorage.getItem("token") },
     });
-    console.log(data);
 
     if (data.status) {
       localStorage.removeItem("token");
@@ -53,6 +52,7 @@ const Dashboard = () => {
             favourites.map((favourite, index) => {
               return (
                 <div className="container" key={index}>
+                  <p>{favourite.singleRestaurant.id}</p>
                   <p>{new Date(favourite.date).toDateString()}</p>
                   <h1>
                     {favourite.name} - {favourite.city}
@@ -62,7 +62,6 @@ const Dashboard = () => {
                     <button
                       className="remove"
                       onClick={async () => {
-                        console.log(favourite);
                         dispatch(setRemove(favourite.singleRestaurant.id));
 
                         const { data } = await axios.delete(
@@ -74,7 +73,6 @@ const Dashboard = () => {
                             },
                           }
                         );
-                        console.log(data);
                       }}
                     >
                       <FaRegTrashAlt className="trash" />

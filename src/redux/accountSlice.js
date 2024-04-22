@@ -1,6 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import sha256 from "sha256";
-
 import { getStore, saveStore } from "./diskUtils";
 
 const initialState = {
@@ -30,13 +28,10 @@ export const accountSlice = createSlice({
       saveStore("account", state);
     },
     setReview: (state, { payload }) => {
-      console.log(payload);
       const duplicate = state.favourites.some((account) => {
-        console.log(account.id, payload.singleRestaurant.id);
         return account.singleRestaurant.id === payload.singleRestaurant.id;
       });
       if (duplicate) {
-        console.log("duplicate found");
         state.message =
           payload.singleRestaurant.name +
           " - " +
@@ -61,9 +56,9 @@ export const accountSlice = createSlice({
       saveStore("account", state);
     },
     setRemove: (state, { payload }) => {
-      console.log(payload, state.favourites);
+      console.log(payload);
       const index = state.favourites.findIndex((account) => {
-        return account.id === payload;
+        return account.singleRestaurant.id === payload;
       });
       state.favourites.splice(index, 1);
       saveStore("account", state);

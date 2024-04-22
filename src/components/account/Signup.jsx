@@ -27,7 +27,6 @@ const Signup = () => {
     // dispatch(setScreen(1));
   };
 
-  console.log(userInput);
   return (
     <>
       <div className="signup-page">
