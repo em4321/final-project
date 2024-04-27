@@ -52,7 +52,6 @@ const Dashboard = () => {
             favourites.map((favourite, index) => {
               return (
                 <div className="container" key={index}>
-                  <p>{favourite.singleRestaurant.id}</p>
                   <p>{new Date(favourite.date).toDateString()}</p>
                   <h1>
                     {favourite.name} - {favourite.city}

@@ -28,6 +28,7 @@ export const accountSlice = createSlice({
       saveStore("account", state);
     },
     setReview: (state, { payload }) => {
+      console.log(payload);
       const duplicate = state.favourites.some((account) => {
         return account.singleRestaurant.id === payload.singleRestaurant.id;
       });

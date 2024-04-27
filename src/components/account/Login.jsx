@@ -33,11 +33,15 @@ const Login = () => {
       dispatch(setScreen(2));
       dispatch(setLoggedIn());
       localStorage.setItem("token", data.token);
-      if (data.favourites && data.favourites.length > 0) {
-        data.favourites.forEach((item) => {
-          dispatch(setReview(item));
-        });
-      }
+      const favourites = await axios.get(
+        "http://localhost:6002/user/getFavourites",
+        { headers: { token: localStorage.getItem("token") } }
+      );
+      console.log(favourites);
+
+      favourites.data.result.forEach((item) => {
+        dispatch(setReview(item.payload));
+      });
     } else {
       dispatch(setMessage("Details are incorrect"));
     }
