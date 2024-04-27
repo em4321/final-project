@@ -12,7 +12,6 @@ export const accountSlice = createSlice({
   initialState: diskData ? diskData : initialState,
   reducers: {
     setNewUser: (state, { payload }) => {
-      // payload.password = sha256(payload.password + { addToPassword });
       state.user = payload;
       saveStore("account", state);
     },
@@ -26,6 +25,10 @@ export const accountSlice = createSlice({
     setLoggedIn: (state) => {
       state.loggedIn = !state.loggedIn;
       saveStore("account", state);
+    },
+    clearStore: (state) => {
+      state.screen = 1;
+      state.favourites = [];
     },
     setReview: (state, { payload }) => {
       console.log(payload);
@@ -75,6 +78,7 @@ export const {
   setReview,
   setRemove,
   setTotal,
+  clearStore,
 } = accountSlice.actions;
 
 export const selectMessage = (state) => state.account.message;

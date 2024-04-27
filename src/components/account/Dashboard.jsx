@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
+  clearStore,
   selectFavourites,
   setLoggedIn,
   setRemove,
@@ -19,8 +20,9 @@ const Dashboard = () => {
     });
 
     if (data.status) {
-      localStorage.removeItem("token");
-      dispatch(setScreen(1));
+      localStorage.clear();
+      // dispatch(setScreen(1));
+      dispatch(clearStore());
     }
   };
 
