@@ -153,6 +153,7 @@ label {
   align-items: center;
   position: relative;
   color: #04030f;
+  text-shadow: 0 0 8px #f5b180;
 }
 
 .links,

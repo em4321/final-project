@@ -25,7 +25,7 @@ const Restaurant = ({ restaurant }) => {
             {restaurant.categories[0].title} {restaurant.price}
           </p>
 
-          <span className="numberRating">{restaurant.rating} </span>
+          <span className="numberRating"> {restaurant.rating} / 5 </span>
           <span>
             {rating.map((restaurant, index) => {
               return <FaRegStar className="stars" key={index} />;
@@ -33,9 +33,8 @@ const Restaurant = ({ restaurant }) => {
             {restaurant.rating !== Math.round(restaurant.rating) && (
               <FaRegStarHalf className="stars" />
             )}
-            {restaurant.rating == Math.round(restaurant.rating) && (
-              <FaRegStar className="stars" />
-            )}
+            {restaurant.rating == Math.round(restaurant.rating) &&
+              restaurant.rating > 0.5 && <FaRegStar className="stars" />}
           </span>
 
           <p>Distance: approx {Math.round(restaurant.distance / 1000)} km</p>

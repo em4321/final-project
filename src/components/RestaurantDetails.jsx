@@ -72,10 +72,10 @@ const RestaurantDetails = ({ index }) => {
                 Math.round(singleRestaurant.rating) && (
                 <FaRegStarHalf className="stars" />
               )}
-              {singleRestaurant.rating ==
-                Math.round(singleRestaurant.rating) && (
-                <FaRegStar className="stars" />
-              )}{" "}
+              {singleRestaurant.rating == Math.round(singleRestaurant.rating) &&
+                singleRestaurant.rating > 0.5 && (
+                  <FaRegStar className="stars" />
+                )}{" "}
             </span>
             <p>Average price: {singleRestaurant.price}</p>
           </div>

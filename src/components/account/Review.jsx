@@ -9,7 +9,6 @@ const Review = ({ singleRestaurant, setFavourite }) => {
   const dispatch = useDispatch();
 
   const onSubmit = async (e) => {
-    console.log("onsubmit ran");
     e.preventDefault();
 
     try {
@@ -18,12 +17,9 @@ const Review = ({ singleRestaurant, setFavourite }) => {
         { review: userInput.review, singleRestaurant },
         { headers: { token: localStorage.getItem("token") } }
       );
-      console.log("data", data);
       dispatch(setReview({ review: userInput.review, singleRestaurant }));
       setFavourite();
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   };
 
   const onInput = (e) => {
