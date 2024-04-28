@@ -176,9 +176,12 @@ label {
   align-items: center;
   position: relative;
   color: #04030f;
-  text-shadow: 0 0 8px #f5b180;
 }
 
+.root h1 {
+  font-size: 4rem;
+  text-shadow: 2px 2px 12px #f9f2eb;
+}
 .links,
 .searchButton {
   height: 4rem;
@@ -317,6 +320,7 @@ form {
 .restaurantInfo,
 .restaurantDetails {
   padding: 2rem;
+  line-height: 4rem;
 }
 
 @media screen and (min-width: 450px) {
