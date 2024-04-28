@@ -33,27 +33,27 @@ const RestaurantDetails = ({ index }) => {
             <h1>
               <span>
                 {singleRestaurant.name} - {singleRestaurant.location.city}
-                <button
-                  className="favourite"
-                  onClick={() => {
-                    setFavourite(!favourite);
-                  }}
-                >
-                  <FaRegHeart
-                    className="heart"
-                    style={{
-                      color: singleRestaurant.favourite ? "#f5b180" : "#04030f",
-                    }}
-                  />
-                </button>
-                {favourite && (
-                  <Review
-                    singleRestaurant={singleRestaurant}
-                    setFavourite={setFavourite}
-                  />
-                )}
               </span>
             </h1>
+            <button
+              className="favourite"
+              onClick={() => {
+                setFavourite(!favourite);
+              }}
+            >
+              <FaRegHeart
+                className="heart"
+                style={{
+                  color: singleRestaurant.favourite ? "#f5b180" : "#04030f",
+                }}
+              />
+            </button>
+            {favourite && (
+              <Review
+                singleRestaurant={singleRestaurant}
+                setFavourite={setFavourite}
+              />
+            )}
           </div>
 
           <div>

@@ -7,14 +7,18 @@ const Header = () => {
       <div className="header">
         <IoIosRestaurant className="logo" />
         <h1>Restaurant Finder</h1>
+        <div className="homeAndAccount">
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <button className="links">Home</button>
+          </Link>
 
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <button className="links">Home</button>
-        </Link>
-
-        <Link to="/account" style={{ textDecoration: "none", padding: "1rem" }}>
-          <button className="links">Account</button>
-        </Link>
+          <Link
+            to="/account"
+            style={{ textDecoration: "none", padding: "1rem" }}
+          >
+            <button className="links">Account</button>
+          </Link>
+        </div>
       </div>
     </>
   );
