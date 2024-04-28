@@ -9,6 +9,7 @@ const Search = () => {
       setLocation(e.target.value);
       getApiData(e.target.value, name);
     }
+
     if (e.target.id === "name") {
       setName(e.target.value);
       getApiData(location, e.target.value);
@@ -27,8 +28,9 @@ const Search = () => {
             placeholder="London, New York, Berlin..."
             onInput={onInput}
           />
+          {/* <button onClick={onClick}>Submit</button> */}
         </div>
-        <label htmlFor="name">Search by name:</label>
+        <label htmlFor="name">(Optional) Search by name:</label>
         <div className="searchBar">
           <input
             type="text"
@@ -37,6 +39,7 @@ const Search = () => {
             placeholder="Côte, Starbucks, Five Guys..."
             onInput={onInput}
           />
+          {/* <button onClick={onClick}>Submit</button> */}
         </div>
       </div>
     </>
