@@ -26,9 +26,11 @@ const Dashboard = () => {
 
   return (
     <>
-      <button className="logout" onClick={logout}>
-        Logout
-      </button>
+      <div className="account-nav">
+        <button className="logout" onClick={logout}>
+          Logout
+        </button>
+      </div>
       <div className="favouritesResults">
         <h1 className="favouritesHeading">Favourites Dashboard</h1>{" "}
         <div className="favouritesDashboard">

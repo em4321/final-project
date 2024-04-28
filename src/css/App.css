@@ -82,6 +82,9 @@ h1 {
 small {
   color: #f9f2eb;
 }
+.header h1 {
+  margin-left: 1rem;
+}
 p,
 span {
   font-size: 2rem;
@@ -112,7 +115,8 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 2rem;
+  line-height: 4rem;
   background-color: #92817a;
 }
 .sort {
@@ -120,6 +124,8 @@ footer {
   align-items: center;
   justify-content: center;
   background-color: #92817a;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 select {
@@ -139,6 +145,10 @@ select {
   align-items: center;
   justify-content: center;
   padding: 1rem;
+}
+.account-nav {
+  background-color: #92817a;
+  padding: 2rem;
 }
 label {
   font-size: 1.5rem;
@@ -247,11 +257,6 @@ form {
   background-color: #f9f2eb;
 }
 
-.signup,
-.login {
-  margin: 2rem;
-}
-
 .account-root {
   font-size: 1.5rem;
   text-align: center;
@@ -269,12 +274,21 @@ form {
   margin-bottom: 2rem;
   margin-top: 1rem;
 }
-.logout {
-  margin-top: 4rem;
-  margin-left: 4rem;
-  margin-bottom: 4rem;
+.logout,
+.login,
+.signup {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
   border-radius: 2rem;
   padding: 1rem;
+}
+.submitFormButton {
+  border-radius: 2rem;
+  padding: 1rem;
+}
+.checkbox {
+  margin-bottom: 1rem;
 }
 
 .favouritesDashboard,

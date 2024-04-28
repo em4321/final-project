@@ -52,7 +52,12 @@ const Login = () => {
       <form onInput={onInput} onSubmit={onSubmit}>
         <UserCredentials name="Login" />
       </form>
-      <input type="checkbox" id="remember" name="remember"></input>
+      <input
+        className="checkbox"
+        type="checkbox"
+        id="remember"
+        name="remember"
+      ></input>
       <label htmlFor="remember">Remember me</label>
     </>
   );

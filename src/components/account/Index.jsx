@@ -14,23 +14,25 @@ const Index = () => {
       <div className="index">
         {!token && (
           <>
-            <button
-              className="login"
-              onClick={() => {
-                dispatch(setScreen(1));
-              }}
-            >
-              Login
-            </button>
+            <div className="account-nav">
+              <button
+                className="login"
+                onClick={() => {
+                  dispatch(setScreen(1));
+                }}
+              >
+                Login
+              </button>
 
-            <button
-              className="signup"
-              onClick={() => {
-                dispatch(setScreen(0));
-              }}
-            >
-              Signup
-            </button>
+              <button
+                className="signup"
+                onClick={() => {
+                  dispatch(setScreen(0));
+                }}
+              >
+                Signup
+              </button>
+            </div>
           </>
         )}{" "}
         {screen === 2 && <Dashboard />}

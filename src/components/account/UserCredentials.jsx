@@ -10,7 +10,7 @@ const UserCredentials = ({ name }) => {
         <input type="password" name="password" id="password" />
       </div>
       <div className="submit">
-        <button>{name}</button>
+        <button className="submitFormButton">{name}</button>
       </div>
     </>
   );
