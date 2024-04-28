@@ -88,6 +88,7 @@ const Main = () => {
     <>
       <ImageHeader />
       <Nav />
+
       {loading && <Spinner />}
       {!loading && (
         <div className="searchResults">

@@ -86,7 +86,6 @@ const Dashboard = () => {
                 <div className="restaurantInfo">
                   <p>What did you like? {favourite.review} </p>
                 </div>
-
                 <div className="line"></div>
               </div>
             );

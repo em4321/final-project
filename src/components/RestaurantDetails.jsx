@@ -28,44 +28,44 @@ const RestaurantDetails = ({ index }) => {
   return (
     <>
       <div className="singleRestaurant" key={index}>
-        <div className="container">
-          <div className="name">
-            <h1>
-              <span>
+        <div className="card">
+          <div className="container">
+            <div className="name">
+              <h1>
                 {singleRestaurant.name} - {singleRestaurant.location.city}
-              </span>
-            </h1>
-            <button
-              className="favourite"
-              onClick={() => {
-                setFavourite(!favourite);
-              }}
-            >
-              <FaRegHeart
-                className="heart"
-                style={{
-                  color: singleRestaurant.favourite ? "#f5b180" : "#04030f",
+              </h1>
+              <button
+                className="favourite"
+                onClick={() => {
+                  setFavourite(!favourite);
                 }}
-              />
-            </button>
-            {favourite && (
-              <Review
-                singleRestaurant={singleRestaurant}
-                setFavourite={setFavourite}
-              />
-            )}
-          </div>
+              >
+                <FaRegHeart
+                  className="heart"
+                  style={{
+                    color: singleRestaurant.favourite ? "#f5b180" : "#04030f",
+                  }}
+                />
+              </button>
+              {favourite && (
+                <Review
+                  singleRestaurant={singleRestaurant}
+                  setFavourite={setFavourite}
+                />
+              )}
+            </div>
 
-          <div>
-            {singleRestaurant.image_url.length > 0 && (
-              <img
-                className="singleRestaurantImage"
-                src={singleRestaurant.image_url}
-              />
-            )}
-            {singleRestaurant.image_url.length == 0 && (
-              <MdNoPhotography className="noImage" />
-            )}
+            <div>
+              {singleRestaurant.image_url.length > 0 && (
+                <img
+                  className="singleRestaurantImage"
+                  src={singleRestaurant.image_url}
+                />
+              )}
+              {singleRestaurant.image_url.length == 0 && (
+                <MdNoPhotography className="noImage" />
+              )}
+            </div>
           </div>
           <div className="restaurantInfo">
             <p>

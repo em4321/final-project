@@ -49,16 +49,18 @@ const Login = () => {
 
   return (
     <>
-      <form onInput={onInput} onSubmit={onSubmit}>
-        <UserCredentials name="Login" />
-      </form>
-      <input
-        className="checkbox"
-        type="checkbox"
-        id="remember"
-        name="remember"
-      ></input>
-      <label htmlFor="remember">Remember me</label>
+      <div className="form">
+        <form onInput={onInput} onSubmit={onSubmit}>
+          <UserCredentials name="Login" />
+        </form>
+        <input
+          className="checkbox"
+          type="checkbox"
+          id="remember"
+          name="remember"
+        ></input>
+        <label htmlFor="remember">Remember me</label>
+      </div>
     </>
   );
 };
