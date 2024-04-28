@@ -14,7 +14,8 @@ const Controls = () => {
           <option value="">Best Match</option>
           <option value="Distance">Distance</option>
           <option value="Highest-Rating">Highest Rating</option>
-          <option value="Lowest-Rating">Lowest Rating</option>
+          <option value="Lowest-Price">Price Low-High</option>
+          <option value="Highest-Price">Price High-Low</option>
         </select>
       </div>
     </>

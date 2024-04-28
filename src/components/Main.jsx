@@ -61,13 +61,25 @@ const Main = () => {
       }
     });
   }
-  if (sort === "Lowest-Rating") {
+
+  if (sort === "Lowest-Price") {
     filtered.sort((a, b) => {
-      if (a.rating > b.rating) {
+      if (a.price > b.price) {
         return 1;
       }
-      if (a.rating < b.rating) {
+      if (a.price < b.price) {
         return -1;
+      }
+    });
+  }
+
+  if (sort === "Highest-Price") {
+    filtered.sort((a, b) => {
+      if (a.price > b.price) {
+        return -1;
+      }
+      if (a.price < b.price) {
+        return 1;
       }
     });
   }
