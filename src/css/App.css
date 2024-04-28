@@ -27,6 +27,11 @@ main {
   width: 100vw;
   padding: 1.5rem;
   margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .singleRestaurant {
   line-height: 5rem;
@@ -37,10 +42,6 @@ main {
   background-color: #362417;
   opacity: 30%;
 }
-/* img {
-  border-radius: 20px;
-  border: 1rem solid #04030f;
-} */
 
 .restaurantImage:hover {
   opacity: 70%;
@@ -57,6 +58,10 @@ main {
   border: 1rem solid #04030f;
 }
 
+.container {
+  padding: 2rem;
+  text-align: center;
+}
 .searchResults {
   display: flex;
   flex-wrap: wrap;
@@ -203,7 +208,6 @@ label {
 .trash {
   font-size: 4rem;
   cursor: pointer;
-  margin-left: 1rem;
 }
 
 .stars {
@@ -263,13 +267,14 @@ form {
 }
 .logout {
   margin-top: 4rem;
-  margin-left: 1rem;
+  margin-left: 4rem;
+  margin-bottom: 4rem;
   border-radius: 2rem;
   padding: 1rem;
 }
 
 .favouritesDashboard,
-.results {
+.favourites {
   line-height: 8rem;
   display: flex;
   position: relative;
@@ -279,16 +284,26 @@ form {
   margin: auto;
   padding: 3rem;
 }
-.restaurantInfo {
+.favouritesHeading {
+  text-align: center;
+  margin-top: 8rem;
+  margin-bottom: 5rem;
+}
+.singleRestaurantImage {
+  margin-bottom: 2rem;
+}
+.dateAndName {
+  line-height: 5rem;
+}
+
+.restaurantInfo,
+.restaurantDetails {
   padding: 2rem;
 }
 @media screen and (min-width: 660px) {
   .container,
-  .restaurantInfo {
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin: auto;
+  .singleRestaurant,
+  .name {
     padding: 5rem;
   }
   .results {
@@ -300,9 +315,23 @@ form {
     margin: auto;
     padding: 5rem;
   }
+
+  .restaurantName,
+  .location,
+  .restaurantInfo,
+  .restaurantDetails {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+  }
   .restaurantImage {
-    width: 35rem;
-    height: 35rem;
+    width: 45rem;
+    height: 45rem;
   }
   .singleRestaurantImage,
   .noImage {
@@ -320,4 +349,6 @@ form {
     margin: auto;
     padding: 5rem;
   }
+}
+@media screen and (min-width: 1000px) {
 }

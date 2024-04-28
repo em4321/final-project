@@ -29,9 +29,9 @@ const Dashboard = () => {
       <button className="logout" onClick={logout}>
         Logout
       </button>
-      <div className="results">
+      <div className="favouritesResults">
+        <h1 className="favouritesHeading">Favourites Dashboard</h1>{" "}
         <div className="favouritesDashboard">
-          <h1>Favourites Dashboard</h1>{" "}
           <h2>
             {favourites.length} Favourites
             <FaRegHeart
@@ -46,20 +46,8 @@ const Dashboard = () => {
           favourites.map((favourite, index) => {
             return (
               <div className="container" key={index}>
-                <p>{new Date(favourite.date).toDateString()}</p>
-                <h1>
-                  {favourite.name} - {favourite.city}
-                </h1>
-                <span>
-                  {favourite.image.length > 0 && (
-                    <img
-                      className="singleRestaurantImage"
-                      src={favourite.image}
-                    />
-                  )}
-                  {favourite.image.length == 0 && (
-                    <MdNoPhotography className="noImage" />
-                  )}
+                <div className="dateAndName">
+                  <p>{new Date(favourite.date).toDateString()}</p>
                   <button
                     className="remove"
                     onClick={async () => {
@@ -78,6 +66,20 @@ const Dashboard = () => {
                   >
                     <FaRegTrashAlt className="trash" />
                   </button>
+                  <h1>
+                    {favourite.name} - {favourite.city}
+                  </h1>
+                </div>
+                <span>
+                  {favourite.image.length > 0 && (
+                    <img
+                      className="singleRestaurantImage"
+                      src={favourite.image}
+                    />
+                  )}
+                  {favourite.image.length == 0 && (
+                    <MdNoPhotography className="noImage" />
+                  )}
                 </span>
                 <div className="restaurantInfo">
                   <p>What did you like? {favourite.review} </p>

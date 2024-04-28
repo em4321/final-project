@@ -11,42 +11,45 @@ const Restaurant = ({ restaurant }) => {
   return (
     <>
       <div className="results">
-        <div className="container">
-          <div className="name">
-            <h1>{restaurant.name}</h1>
-          </div>
-          <h2>{restaurant.location.city}</h2>
-          <h2>{restaurant.location.zip_code}</h2>
-          <Link className="link" to={"/restaurant/" + restaurant.id}>
-            <div>
-              {restaurant.image_url.length > 0 && (
-                <img className="restaurantImage" src={restaurant.image_url} />
-              )}
-              {restaurant.image_url.length == 0 && (
-                <MdNoPhotography className="restaurantImage" />
-              )}
-            </div>
-          </Link>
+        <div className="restaurantName">
+          <h1>{restaurant.name}</h1>
         </div>
-        <div className="restaurantInfo">
-          <p>
-            {restaurant.categories[0].title} {restaurant.price}
-          </p>
-
-          <span className="numberRating"> {restaurant.rating} / 5 </span>
-          <span>
-            {rating.map((restaurant, index) => {
-              return <FaStar className="stars" key={index} />;
-            })}
-            {restaurant.rating !== Math.round(restaurant.rating) && (
-              <FaStarHalfAlt className="stars" />
+        <div className="restaurantContainer">
+          <div className="location">
+            <h2>{restaurant.location.city}</h2>
+            <h2>{restaurant.location.zip_code}</h2>
+          </div>
+        </div>
+        <Link className="link" to={"/restaurant/" + restaurant.id}>
+          <div>
+            {restaurant.image_url.length > 0 && (
+              <img className="restaurantImage" src={restaurant.image_url} />
             )}
-            {restaurant.rating == Math.round(restaurant.rating) &&
-              restaurant.rating > 0.5 && <FaStar className="stars" />}
-          </span>
+            {restaurant.image_url.length == 0 && (
+              <MdNoPhotography className="restaurantImage" />
+            )}
+          </div>
+        </Link>
+        <div className="restaurantContainer">
+          <div className="restaurantDetails">
+            <p>
+              {restaurant.categories[0].title} {restaurant.price}
+            </p>
 
-          <p>Distance: approx {Math.round(restaurant.distance / 1000)} km</p>
-        </div>{" "}
+            <span className="numberRating"> {restaurant.rating} / 5 </span>
+            <span>
+              {rating.map((restaurant, index) => {
+                return <FaStar className="stars" key={index} />;
+              })}
+              {restaurant.rating !== Math.round(restaurant.rating) && (
+                <FaStarHalfAlt className="stars" />
+              )}
+              {restaurant.rating == Math.round(restaurant.rating) &&
+                restaurant.rating > 0.5 && <FaStar className="stars" />}
+            </span>
+            <p>Distance: approx {Math.round(restaurant.distance / 1000)} km</p>
+          </div>
+        </div>
       </div>
       <div className="line"></div>
     </>

@@ -55,10 +55,7 @@ const RestaurantDetails = ({ index }) => {
               </span>
             </h1>
           </div>
-          {/* <img
-            className="singleRestaurantImage"
-            src={singleRestaurant.image_url}
-          /> */}
+
           <div>
             {singleRestaurant.image_url.length > 0 && (
               <img
