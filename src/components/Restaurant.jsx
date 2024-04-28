@@ -37,7 +37,10 @@ const Restaurant = ({ restaurant }) => {
                 {restaurant.categories[0].title} {restaurant.price}
               </p>
 
-              <span className="numberRating"> {restaurant.rating} / 5 </span>
+              <p className="numberRating">
+                {" "}
+                {restaurant.rating} stars out of 5{" "}
+              </p>
               <span>
                 {rating.map((restaurant, index) => {
                   return <FaStar className="stars" key={index} />;

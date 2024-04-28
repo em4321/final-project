@@ -72,6 +72,7 @@ const Dashboard = () => {
                     {favourite.name} - {favourite.city}
                   </h1>
                 </div>
+
                 <span>
                   {favourite.image.length > 0 && (
                     <img
@@ -86,6 +87,7 @@ const Dashboard = () => {
                 <div className="restaurantInfo">
                   <p>What did you like? {favourite.review} </p>
                 </div>
+
                 <div className="line"></div>
               </div>
             );

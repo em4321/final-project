@@ -72,10 +72,10 @@ const RestaurantDetails = ({ index }) => {
               {singleRestaurant.categories[0].title} (
               {singleRestaurant.review_count} reviews)
             </p>
-            <span className="numberRating">
+            <p className="numberRating">
               {" "}
-              {singleRestaurant.rating} / 5{" "}
-            </span>
+              {singleRestaurant.rating} stars out of 5{" "}
+            </p>
             <span>
               {rating.map((singleRestaurant, index) => {
                 return <FaStar className="stars" key={index} />;
