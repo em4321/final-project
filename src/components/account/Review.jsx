@@ -17,6 +17,7 @@ const Review = ({ singleRestaurant, setFavourite }) => {
         { review: userInput.review, singleRestaurant },
         { headers: { token: localStorage.getItem("token") } }
       );
+      console.log(data);
       dispatch(setReview({ review: userInput.review, singleRestaurant }));
       setFavourite();
     } catch (e) {}

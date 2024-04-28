@@ -37,27 +37,34 @@ main {
   background-color: #362417;
   opacity: 30%;
 }
-img {
+/* img {
   border-radius: 20px;
   border: 1rem solid #04030f;
-}
+} */
 
 .restaurantImage:hover {
   opacity: 70%;
   border: 1rem solid #f5b180;
 }
-.restaurantImage {
-  width: 30vw;
+
+.restaurantImage,
+.noImage,
+.singleRestaurantImage {
+  width: 18rem;
+  height: 18rem;
+  font-size: 2rem;
+  border-radius: 20px;
+  border: 1rem solid #04030f;
 }
 
-.singleRestaurantImage {
-  width: 40vw;
-}
 .searchResults {
   display: flex;
   flex-wrap: wrap;
 }
 
+.link {
+  color: #04030f;
+}
 .singleRestaurant {
   display: flex;
   align-items: center;
@@ -89,10 +96,11 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 8rem;
+  height: 27rem;
   display: flex;
   align-items: center;
   background-color: #04030f;
+  padding: 2rem;
 }
 .nav {
   display: flex;
@@ -235,10 +243,11 @@ form {
 .login {
   margin: 2rem;
 }
+
 .account-root {
   font-size: 1.5rem;
   text-align: center;
-  height: 100vh;
+  padding: 8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -253,21 +262,27 @@ form {
   margin-top: 1rem;
 }
 .logout {
-  margin-top: 1rem;
+  margin-top: 4rem;
   margin-left: 1rem;
   border-radius: 2rem;
   padding: 1rem;
 }
 
-.favouritesDashboard {
-  width: 100vw;
-  line-height: 3.5rem;
+.favouritesDashboard,
+.results {
+  line-height: 8rem;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 3rem;
 }
-
+.restaurantInfo {
+  padding: 2rem;
+}
 @media screen and (min-width: 660px) {
-  .results {
-    display: flex;
-  }
   .container,
   .restaurantInfo {
     align-items: center;
@@ -276,7 +291,7 @@ form {
     margin: auto;
     padding: 5rem;
   }
-  .favouritesDashboard {
+  .results {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -284,6 +299,15 @@ form {
     align-items: center;
     margin: auto;
     padding: 5rem;
+  }
+  .restaurantImage {
+    width: 35rem;
+    height: 35rem;
+  }
+  .singleRestaurantImage,
+  .noImage {
+    width: 60%;
+    height: 60%;
   }
 }
 @media screen and (min-width: 800px) {

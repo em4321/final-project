@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux";
 import { FaRegHeart } from "react-icons/fa";
-import { FaRegStar } from "react-icons/fa";
-import { FaRegStarHalf } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+import { FaStarHalfAlt } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { selectRestaurant } from "../redux/restaurantSlice";
 import { useState } from "react";
 import Review from "./account/Review";
+import { MdNoPhotography } from "react-icons/md";
 
 const RestaurantDetails = ({ index }) => {
   const { id } = useParams();
@@ -54,27 +55,41 @@ const RestaurantDetails = ({ index }) => {
               </span>
             </h1>
           </div>
-          <img
+          {/* <img
             className="singleRestaurantImage"
             src={singleRestaurant.image_url}
-          />
+          /> */}
+          <div>
+            {singleRestaurant.image_url.length > 0 && (
+              <img
+                className="singleRestaurantImage"
+                src={singleRestaurant.image_url}
+              />
+            )}
+            {singleRestaurant.image_url.length == 0 && (
+              <MdNoPhotography className="noImage" />
+            )}
+          </div>
           <div className="restaurantInfo">
             <p>
               {singleRestaurant.categories[0].title} (
               {singleRestaurant.review_count} reviews)
             </p>
-            <span className="numberRating"> {singleRestaurant.rating} </span>
+            <span className="numberRating">
+              {" "}
+              {singleRestaurant.rating} / 5{" "}
+            </span>
             <span>
               {rating.map((singleRestaurant, index) => {
-                return <FaRegStar className="stars" key={index} />;
+                return <FaStar className="stars" key={index} />;
               })}
               {singleRestaurant.rating !==
                 Math.round(singleRestaurant.rating) && (
-                <FaRegStarHalf className="stars" />
+                <FaStarHalfAlt className="stars" />
               )}
               {singleRestaurant.rating == Math.round(singleRestaurant.rating) &&
                 singleRestaurant.rating > 0.5 && (
-                  <FaRegStar className="stars" />
+                  <FaStar className="stars" />
                 )}{" "}
             </span>
             <p>Average price: {singleRestaurant.price}</p>
