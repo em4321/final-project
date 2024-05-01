@@ -1,19 +1,22 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FaRegHeart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { selectRestaurant } from "../redux/restaurantSlice";
 import { useState } from "react";
 import Review from "./account/Review";
 import { MdNoPhotography } from "react-icons/md";
+import { selectLoggedIn, setLoggedIn, setScreen } from "../redux/accountSlice";
 
 const RestaurantDetails = ({ index }) => {
   const { id } = useParams();
   const [favourite, setFavourite] = useState(false);
-
+  const loggedIn = useSelector(selectLoggedIn);
   const restaurant = useSelector(selectRestaurant);
-
+  console.log(loggedIn);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const singleRestaurant = restaurant.find((item) => {
     return item.id === id;
   });
@@ -37,6 +40,11 @@ const RestaurantDetails = ({ index }) => {
               <button
                 className="favourite"
                 onClick={() => {
+                  if (!loggedIn) {
+                    dispatch(setScreen(1));
+                    navigate("/account");
+                    return;
+                  }
                   setFavourite(!favourite);
                 }}
               >

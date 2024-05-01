@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setReview } from "../../redux/accountSlice";
+import { setMessage, setReview } from "../../redux/accountSlice";
 import { FaRegHeart } from "react-icons/fa";
 import axios from "axios";
 
@@ -20,6 +20,11 @@ const Review = ({ singleRestaurant, setFavourite }) => {
       console.log(data);
       dispatch(setReview({ review: userInput.review, singleRestaurant }));
       setFavourite();
+      dispatch(
+        setMessage(
+          `Added ${singleRestaurant.name} - ${singleRestaurant.location.city}`
+        )
+      );
     } catch (e) {}
   };
 

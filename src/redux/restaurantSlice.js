@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getStore, saveStore } from "./diskUtils";
 
-const initialState = {};
+const initialState = { restaurantData: [] };
 
 const diskData = getStore("restaurant");
 

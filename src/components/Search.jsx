@@ -9,12 +9,10 @@ const Search = () => {
   const onInput = (e) => {
     if (e.target.id === "location") {
       setLocation(e.target.value);
-      // getApiData(e.target.value, name);
     }
 
     if (e.target.id === "name") {
       setName(e.target.value);
-      // getApiData(location, e.target.value);
     }
   };
 
@@ -22,7 +20,6 @@ const Search = () => {
     <>
       <div>
         <span className="searchBar">
-          {/* <label htmlFor="location">Required:</label> */}
           <input
             className="searchInput"
             type="text"
@@ -31,8 +28,6 @@ const Search = () => {
             placeholder="Enter location (required) - London, Berlin, New York, Melbourne..."
             onInput={onInput}
           />
-
-          {/* <label htmlFor="name">Optional:</label> */}
 
           <input
             className="searchInput"
@@ -48,12 +43,7 @@ const Search = () => {
             name="name"
             id="name"
             onClick={(e) => {
-              if (e.target.id === "location") {
-                getApiData(e.target.value, name);
-              }
-              if (e.target.id === "name") {
-                getApiData(location, e.target.value);
-              }
+              getApiData(location, name);
             }}
           >
             <FaSearch />

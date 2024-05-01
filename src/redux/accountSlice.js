@@ -21,6 +21,7 @@ export const accountSlice = createSlice({
     },
     setMessage: (state, { payload }) => {
       state.message = payload;
+      saveStore("account", state);
     },
     setLoggedIn: (state) => {
       state.loggedIn = !state.loggedIn;
@@ -43,12 +44,7 @@ export const accountSlice = createSlice({
           " has already been added!";
         return;
       }
-      state.message =
-        "Added " +
-        payload.singleRestaurant.name +
-        " - " +
-        payload.singleRestaurant.location.city +
-        " to favourites!";
+
       state.favourites.push({
         name: payload.singleRestaurant.name,
         city: payload.singleRestaurant.location.city,

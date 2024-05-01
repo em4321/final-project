@@ -11,9 +11,7 @@ import { selectRestaurant } from "./redux/restaurantSlice";
 const App = () => {
   const restaurant = useSelector(selectRestaurant);
   useEffect(() => {
-    if (!restaurant) {
-      getApiData();
-    }
+    getApiData();
   }, []);
 
   const message = useSelector(selectMessage);

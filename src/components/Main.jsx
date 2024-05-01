@@ -16,16 +16,6 @@ const Main = () => {
   const sort = useSelector(getSort);
   const loading = useSelector(getLoading);
 
-  if (!restaurantData) {
-    return (
-      <div className="background">
-        <div className="root">
-          <h1>Searching restaurants in your area</h1>
-        </div>
-      </div>
-    );
-  }
-
   let filtered = [...restaurantData];
 
   if (searchRestaurants) {
@@ -92,6 +82,7 @@ const Main = () => {
       {loading && <Spinner />}
       {!loading && (
         <div className="searchResults">
+          {filtered.length === 0 && <p>No search results</p>}
           {filtered.map((restaurant) => {
             return <Restaurant key={restaurant.id} restaurant={restaurant} />;
           })}
