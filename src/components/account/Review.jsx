@@ -31,30 +31,21 @@ const Review = ({ singleRestaurant, setFavourite }) => {
       <form onSubmit={onSubmit} onInput={onInput}>
         <label htmlFor="review"></label>
         <input
+          className="reviewInput"
           type="text"
           id="review"
           name="review"
           placeholder="Optional: What did you like?"
-          style={{
-            textAlign: "center",
-            height: "5rem",
-            width: "20rem",
-          }}
         ></input>
         <button
           style={{
-            marginLeft: "1rem",
-            borderRadius: "2rem",
+            marginLeft: "0.5rem",
+            borderRadius: "1rem",
             padding: "1rem",
+            height: "8rem",
           }}
         >
-          Submit
-          <FaRegHeart
-            style={{
-              fontSize: "2rem",
-              marginLeft: "1rem",
-            }}
-          />
+          <FaRegHeart className="reviewButton" />
         </button>
       </form>
     </div>
