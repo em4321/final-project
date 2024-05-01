@@ -1,5 +1,6 @@
 import { getApiData } from "../dataController/fetching";
 import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
 const Search = () => {
   const [location, setLocation] = useState(" ");
@@ -27,7 +28,7 @@ const Search = () => {
             type="text"
             name="location"
             id="location"
-            placeholder="Enter location: London, New York, Berlin, Melbourne..."
+            placeholder="Enter location (required) - London, Berlin, New York, Melbourne..."
             onInput={onInput}
           />
 
@@ -38,7 +39,7 @@ const Search = () => {
             type="text"
             name="name"
             id="name"
-            placeholder="(Optional) Enter category or name: Steakhouse, Cocktails, TGI Fridays, Starbucks..."
+            placeholder="Enter category or name (optional) - Steakhouse, Cocktails, Starbucks..."
             onInput={onInput}
           />
           <button
@@ -55,7 +56,7 @@ const Search = () => {
               }
             }}
           >
-            Search
+            <FaSearch />
           </button>
         </span>
       </div>

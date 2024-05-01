@@ -146,8 +146,9 @@ footer {
 select {
   border-radius: 1rem;
   padding: 0.5rem;
-  width: 12rem;
+  width: 14rem;
   text-align: center;
+  height: 4.5rem;
 }
 #search {
   width: 60vw;
@@ -160,6 +161,7 @@ select {
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  flex-wrap: wrap;
 }
 .account-nav {
   background-color: #92817a;
@@ -199,18 +201,18 @@ label {
 }
 .links,
 .searchButton {
-  height: 4.5rem;
-  width: 5.5rem;
   border-radius: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 0.5rem;
-  border: 1px solid white;
   cursor: pointer;
 }
-
+.searchButton {
+  height: 5rem;
+  width: 3.8rem;
+  background-color: #f5b180;
+}
 .homeAndAccount {
   display: flex;
   align-items: center;
@@ -221,6 +223,10 @@ label {
 
 .links {
   background-color: #f9f2eb;
+  height: 4.5rem;
+  width: 5.5rem;
+  margin: 0.5rem;
+  border: 1px solid white;
 }
 
 .logo {
@@ -345,6 +351,11 @@ input:hover {
   line-height: 4rem;
 }
 
+@media screen and (min-width: 550px) {
+  .searchBar {
+    margin-left: 3rem;
+  }
+}
 @media screen and (min-width: 450px) {
   .homeAndAccount {
     margin-left: 25%;
@@ -412,5 +423,8 @@ input:hover {
   }
   .card {
     width: 80%;
+  }
+  .searchInput {
+    width: 45rem;
   }
 }
