@@ -41,7 +41,7 @@ export const accountSlice = createSlice({
           payload.singleRestaurant.name +
           " - " +
           payload.singleRestaurant.location.city +
-          " has already been added!";
+          " has already been added to favourites!";
         return;
       }
 

@@ -23,8 +23,6 @@ const Signup = () => {
       localStorage.setItem("token", data.token);
       dispatch(setScreen(2));
     }
-
-    // dispatch(setScreen(1));
   };
 
   return (

@@ -38,6 +38,7 @@ const Search = () => {
             onInput={onInput}
           />
           <button
+            style={{ backgroundColor: "#04030f" }}
             className="searchButton"
             type="text"
             name="name"
@@ -46,7 +47,7 @@ const Search = () => {
               getApiData(location, name);
             }}
           >
-            <FaSearch />
+            <FaSearch style={{ color: "#f5b180" }} />
           </button>
         </span>
       </div>

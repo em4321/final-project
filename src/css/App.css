@@ -21,7 +21,7 @@ html {
 .searchInput {
   border-radius: 1rem;
   padding: 1rem;
-  width: 38vw;
+  width: 31vw;
   height: 5rem;
 }
 .reviewInput {
@@ -79,6 +79,16 @@ main {
   display: flex;
   flex-wrap: wrap;
 }
+/* .noResults {
+  height: 30rem;
+  width: 100vw;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+} */
 
 .link {
   color: #04030f;
@@ -153,7 +163,7 @@ select {
   height: 4.5rem;
 }
 #search {
-  width: 60vw;
+  /* width: 60vw; */
   height: 5vh;
 }
 .searchBar {
@@ -185,7 +195,8 @@ label {
   background-position: center;
 }
 
-.root {
+.root,
+.noResults {
   font-size: 1.5rem;
   text-align: center;
   height: 60vh;
@@ -195,6 +206,9 @@ label {
   align-items: center;
   position: relative;
   color: #04030f;
+}
+.noResults {
+  width: 100vw;
 }
 
 .root h1 {
@@ -350,7 +364,7 @@ input:hover {
   line-height: 4rem;
 }
 
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 337px) {
   .searchBar {
     margin-left: 3rem;
   }

@@ -51,10 +51,7 @@ const Restaurant = ({ restaurant }) => {
                 {restaurant.rating == Math.round(restaurant.rating) &&
                   restaurant.rating > 0.5 && <FaStar className="stars" />}
               </span>
-              <p>
-                {/* Distance: approx {Math.round(restaurant.distance / 1000)} km */}
-                Distance: approx {restaurant.distance.toFixed() / 1000} km
-              </p>
+              <p>Distance: {restaurant.distance.toFixed() / 1000} km</p>
             </div>
           </div>
         </div>

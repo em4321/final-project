@@ -82,7 +82,12 @@ const Main = () => {
       {loading && <Spinner />}
       {!loading && (
         <div className="searchResults">
-          {filtered.length === 0 && <p>No search results</p>}
+          {filtered.length === 0 && (
+            <div className="noResults">
+              <p>No results. Try again!</p>
+            </div>
+          )}
+
           {filtered.map((restaurant) => {
             return <Restaurant key={restaurant.id} restaurant={restaurant} />;
           })}

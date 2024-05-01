@@ -22,7 +22,7 @@ const Review = ({ singleRestaurant, setFavourite }) => {
       setFavourite();
       dispatch(
         setMessage(
-          `Added ${singleRestaurant.name} - ${singleRestaurant.location.city}`
+          `Added ${singleRestaurant.name} - ${singleRestaurant.location.city} to favourites`
         )
       );
     } catch (e) {}

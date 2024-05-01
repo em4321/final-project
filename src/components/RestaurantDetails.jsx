@@ -7,7 +7,7 @@ import { selectRestaurant } from "../redux/restaurantSlice";
 import { useState } from "react";
 import Review from "./account/Review";
 import { MdNoPhotography } from "react-icons/md";
-import { selectLoggedIn, setLoggedIn, setScreen } from "../redux/accountSlice";
+import { selectLoggedIn, setScreen } from "../redux/accountSlice";
 
 const RestaurantDetails = ({ index }) => {
   const { id } = useParams();
