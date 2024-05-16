@@ -16,12 +16,14 @@ html {
 }
 
 .emailInput,
-.passwordInput {
+.passwordInput,
+.submitFormButton {
   border-radius: 1rem;
   padding: 1rem;
   width: 38vw;
   height: 5rem;
 }
+
 .searchInput {
   border-radius: 1rem;
   padding: 1rem;
@@ -326,10 +328,7 @@ input:hover {
   border-radius: 1rem;
   padding: 0.5rem;
 }
-.submitFormButton {
-  border-radius: 1rem;
-  padding: 1rem;
-}
+
 .checkbox {
   margin-bottom: 1rem;
 }
