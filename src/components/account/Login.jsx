@@ -50,8 +50,9 @@ const Login = () => {
   return (
     <>
       <div className="form">
+        <h1>Log In</h1>
         <form onInput={onInput} onSubmit={onSubmit}>
-          <UserCredentials name="Login" />
+          <UserCredentials name="Log In" />
         </form>
         <input
           className="checkbox"
@@ -61,6 +62,17 @@ const Login = () => {
         ></input>
         <label htmlFor="remember">Remember me</label>
       </div>
+      <p>
+        Don't have an account?{" "}
+        <button
+          className="createAccount"
+          onClick={() => {
+            dispatch(setScreen(0));
+          }}
+        >
+          Create account
+        </button>
+      </p>
     </>
   );
 };

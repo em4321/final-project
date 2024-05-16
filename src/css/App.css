@@ -13,11 +13,15 @@ html {
 .logo {
   font-size: 5rem;
   color: #f5b180;
-  /* margin-right: 35rem; */
 }
 
 .emailInput,
-.passwordInput,
+.passwordInput {
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 38vw;
+  height: 5rem;
+}
 .searchInput {
   border-radius: 1rem;
   padding: 1rem;
@@ -79,16 +83,6 @@ main {
   display: flex;
   flex-wrap: wrap;
 }
-/* .noResults {
-  height: 30rem;
-  width: 100vw;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-} */
 
 .link {
   color: #04030f;
@@ -102,7 +96,7 @@ h1 {
   font-size: 2.5rem;
 }
 
-small {
+.footerText {
   color: #f9f2eb;
 }
 .header h1 {
@@ -163,7 +157,6 @@ select {
   height: 4.5rem;
 }
 #search {
-  /* width: 60vw; */
   height: 5vh;
 }
 .searchBar {
@@ -304,7 +297,7 @@ input:hover {
 .account-root {
   font-size: 1.5rem;
   text-align: center;
-  padding: 8rem;
+  padding: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -326,6 +319,12 @@ input:hover {
   margin-bottom: 2rem;
   border-radius: 1rem;
   padding: 1rem;
+}
+
+.signIn,
+.createAccount {
+  border-radius: 1rem;
+  padding: 0.5rem;
 }
 .submitFormButton {
   border-radius: 1rem;
@@ -369,6 +368,17 @@ input:hover {
     margin-left: 3rem;
   }
 }
+@media screen and (min-width: 395px) {
+  .account-root {
+    padding: 5rem;
+  }
+}
+@media screen and (min-width: 415px) {
+  .account-root {
+    padding: 6rem;
+  }
+}
+
 @media screen and (min-width: 450px) {
   .homeAndAccount {
     margin-left: 25%;

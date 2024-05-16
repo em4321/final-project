@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setNewUser, setScreen } from "../../redux/accountSlice";
+import { setScreen } from "../../redux/accountSlice";
 import UserCredentials from "./UserCredentials";
 import axios from "axios";
 
@@ -33,7 +33,18 @@ const Signup = () => {
           <form onInput={onInput} onSubmit={onSubmit}>
             <UserCredentials name="Create account" />
           </form>
-          <p>Your password must be at least 8 characters</p>
+          <small>Your password must be at least 8 characters long</small>
+          <p>
+            Already have an account?{" "}
+            <button
+              className="signIn"
+              onClick={() => {
+                dispatch(setScreen(1));
+              }}
+            >
+              Sign in here
+            </button>
+          </p>
         </div>
       </div>
     </>

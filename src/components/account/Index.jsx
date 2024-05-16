@@ -21,7 +21,7 @@ const Index = () => {
                   dispatch(setScreen(1));
                 }}
               >
-                Login
+                Log In
               </button>
 
               <button
@@ -30,7 +30,7 @@ const Index = () => {
                   dispatch(setScreen(0));
                 }}
               >
-                Signup
+                Sign Up
               </button>
             </div>
           </>
